@@ -1,0 +1,27 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) - US022 - Accept the request for an appointment
+
+
+
+autonumber
+
+actor Professional as prof
+participant ":System" as System
+
+activate prof
+    prof -> System : initiates the process of analyzing the sent request
+    activate System
+        System --> prof : shows refugee information and appointment request details
+        prof -> System : analyzes information and validates
+        System --> admin : validates and asks for confirmation
+        prof -> System : confirms
+        System --> prof : records the information and notifies the success of operation
+    deactivate System
+deactivate admin
+
+
+@enduml
