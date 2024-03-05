@@ -3,7 +3,7 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title System Sequence Diagram (SSD)
+title System Sequence Diagram  US018 - Choose the amount of money
 
 autonumber
 
