@@ -40,7 +40,7 @@ class Professional {
     otherLanguages
     licenseNumber
     profession
-    speciality
+    category
 }
 
 class BankAccountInfo {

@@ -42,7 +42,7 @@ class Professional {
     otherLanguages
     licenseNumber
     profession
-    speciality
+    category
     bankAccountInfoId [fk]
 }
 
