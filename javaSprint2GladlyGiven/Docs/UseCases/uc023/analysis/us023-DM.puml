@@ -1,0 +1,49 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+skinparam classAttributeIconSize 0
+
+hide circle
+hide methods
+
+title US023 - Request registration for a new service.
+
+class ServiceRequest {
+    Id
+    Date Request
+    ServiceCategory
+    Description
+    Status
+}
+
+class Service {
+    Id
+    Name
+    Category
+}
+
+class ServiceCategory {
+    Id
+    Name
+}
+
+
+class Professional {
+    Id
+    First Name
+    Last Name
+    License Number
+    Address
+    Phone Number
+    Email
+    Category
+}
+
+
+Professional "1   " - "   *" ServiceRequest : makes a >
+ServiceRequest " 1   " - "   1" Service : is related to a >
+Service " *   " - "   1" ServiceCategory : has a >
+
+@enduml

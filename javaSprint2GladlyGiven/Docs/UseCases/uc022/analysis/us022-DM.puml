@@ -8,13 +8,31 @@ skinparam classAttributeIconSize 0
 hide circle
 hide methods
 
-title US024 - Cancel or reschedule an appointment
+title US022 - Accept the request for an appointment
+
+class Professional {
+    Id
+    First Name
+    Last Name
+    License Number
+    Address
+    Phone Number
+    Email
+    Category
+}
 
 class Appointment {
     Id
     Date
     Time
     Place
+    Status
+}
+
+class AppointmentRequest {
+    Id
+    Request Date
+    Description
     Status
 }
 
@@ -29,6 +47,17 @@ class ServiceCategory {
     Name
 }
 
+class Professional {
+    Id
+    First Name
+    Last Name
+    License Number
+    Address
+    Phone Number
+    Email
+    Category
+}
+
 class Refugee {
     Refugee Number Protocol
     First Name
@@ -41,9 +70,10 @@ class Refugee {
     Native Language
 }
 
-
-Refugee "1   " - "   *" Appointment : cancels/reschedules an >
+Refugee "1   " -- "   *" Appointment : makes an >
+AppointmentRequest " 1   " - "   1" Appointment : has an >
 Appointment " *   " - "   1" Service : is related to a >
 Service " 1   " - "   1" ServiceCategory : has a >
+Professional "1   " - "   *" AppointmentRequest : accepts/rejects an >
 
 @enduml
