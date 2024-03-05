@@ -24,7 +24,7 @@ activate Professional
         activate ctrl
                         ctrl --> ui : CalendarDateTimeList
             deactivate ctrl
-            ui --> Professional : shows the Vaccine Technologies available and requests data
+            ui --> Professional : shows date time and  available and requests data
     deactivate ui
 
     Professional -> ui : fills in the date and time when he is available.
