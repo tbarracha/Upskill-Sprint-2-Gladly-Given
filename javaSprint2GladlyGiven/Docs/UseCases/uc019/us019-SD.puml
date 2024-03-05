@@ -1,6 +1,3 @@
-
-A FAZER!!!
-
 @startuml
 skinparam monochrome true
 skinparam packageStyle rectangle
@@ -13,7 +10,7 @@ autonumber
 actor Professional
 participant ":CreateSlotDateTimeUI" as ui
 participant ":CreateSlotDateTimeController" as ctrl
-participant Repositories
+participant Repositoriesx
 participant "slotDataTimeRepo : SlotDataTimeRepository" as SlotDataTimeRepo
 
 
