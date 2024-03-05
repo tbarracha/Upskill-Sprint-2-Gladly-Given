@@ -1,0 +1,32 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+skinparam classAttributeIconSize 0
+
+hide circle
+hide methods
+
+title US020 - View monthly reports
+
+class DonationReport {
+    Id
+    Month
+    Total of donations
+}
+
+class Donor {
+    Id
+    First Name
+    Last Name
+    Address
+    NIF/NIPC
+    Email
+    Phone Number
+}
+
+
+Donor "1   " - "   *" DonationReport : views a >
+
+@enduml
