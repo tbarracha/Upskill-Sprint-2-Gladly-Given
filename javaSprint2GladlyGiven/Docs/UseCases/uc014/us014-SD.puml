@@ -19,7 +19,7 @@ participant "slotDataTimeRepo : SlotDataTimeRepository" as SlotDataTimeRepo
 
 activate Professional
 
-    Professional -> ui : starts the process of creating a new date and time slot in the system.
+    Professional -> ui : starts the process of requesting a reviews report.
     activate ui
         ui -> ctrl** : create()
         ui -> ctrl : GetCalendarDateTime()
@@ -55,7 +55,7 @@ activate Professional
             deactivate SlotDataTimeRepo
             ctrl --> ui : success
         deactivate ctrl
-        ui --> Professional : records the information and notifies the success of the operation
+        ui --> Professional : Shows reports with the information and notifies the success of the operation
     deactivate ui
 deactivate Professional
 

@@ -21,7 +21,7 @@ activate Professional
     deactivate System
     Professional -> System : confirms
     activate System
-        System --> Professional : records the information and notifies the success of the operation
+        System --> Professional : Shows reports with the information and notifies the success of the operation
     deactivate System
 deactivate Professional
 
