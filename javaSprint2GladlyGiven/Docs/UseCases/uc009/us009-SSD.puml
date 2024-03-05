@@ -3,7 +3,7 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title UC009 - Choose the application language - System Sequence Diagram (SSD)
+title UC009 - System Sequence Diagram (SSD)
 
 autonumber
 

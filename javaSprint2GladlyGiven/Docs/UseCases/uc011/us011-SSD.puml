@@ -3,7 +3,7 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title UC011 - Make a question to Program Administrators - System Sequence Diagram (SSD)
+title UC011 - System Sequence Diagram (SSD)
 
 autonumber
 
