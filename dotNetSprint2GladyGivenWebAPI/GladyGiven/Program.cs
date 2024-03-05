@@ -1,7 +1,6 @@
 using GladyGivenWebAPI;
 using GladyGivenWebAPI.Example;
 using Microsoft.EntityFrameworkCore;
-using Npgsql;
 
 namespace GladyGiven
 {
