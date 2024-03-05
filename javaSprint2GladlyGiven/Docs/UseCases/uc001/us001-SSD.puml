@@ -1,0 +1,51 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Register Refugee on the application (SSD)
+
+autonumber
+
+actor Refugee
+participant ":System" as System
+
+activate Refugee
+    Refugee -> System : starts the registration process
+    activate System
+        System --> Refugee : shows the attributes used to describe the refugee
+         note right of System
+                     Attributes to provide:
+                     - Refugee protocol number
+                     - First name
+                     - Last name
+                     - Birth date
+                     - Gender
+                     - Phone number
+                     - Email address
+                     - Address (Street name, postal code, city, country)
+                     - NIF
+                     - NISS
+                     - SNS number
+                     - Nationality
+                     - Country of origin
+                     - Native language
+                     - Other languages
+                     - Marital status
+                     - Emergency contact (first name, last name, phone number, email address)
+                     - Medical history
+         end note
+    deactivate System
+
+    Refugee -> System : fills the requested data
+    activate System
+        System --> Refugee : validates and asks for confirmation
+    deactivate System
+
+    Refugee -> System : confirms
+    activate System
+        System --> Refugee : records the information and notifies the success of the operation
+    deactivate System
+deactivate Refugee
+
+@enduml
