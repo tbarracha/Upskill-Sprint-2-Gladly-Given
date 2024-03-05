@@ -3,7 +3,7 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title System Sequence Diagram  US018 - Choose the amount of money
+title System Sequence Diagram - US018 - Choose the amount of money
 
 autonumber
 
@@ -15,12 +15,14 @@ activate Donor
     activate System
         System --> Donor : shows a table (some buttons) with the amount that the donor can select, or type in
     deactivate System
-
-    Donor -> System : click on the button or fill in the amount that wish to donate
+    Donor -> System : select or type in the amount of money
+    activate System
+        System --> Donor : requests more data
+    deactivate System
+    Donor -> System : fills requested data (payment method information)
     activate System
         System --> Donor : validates and asks for confirmation
     deactivate System
-
     Donor -> System : confirms
     activate System
         System --> Donor : records the information and notifies the success of the operation
