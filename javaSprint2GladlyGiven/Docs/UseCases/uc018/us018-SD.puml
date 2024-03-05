@@ -10,7 +10,7 @@ autonumber
 actor Professional
 participant ":CreateSlotDateTimeUI" as ui
 participant ":CreateSlotDateTimeController" as ctrl
-participant Repositoriesx
+participant Repositories
 participant "slotDataTimeRepo : SlotDataTimeRepository" as SlotDataTimeRepo
 
 

@@ -11,19 +11,19 @@ actor Professional
 participant ":System" as System
 
 activate Professional
-    Professional -> System : starts the process of requesting a receiving report.
+    Professional -> System : starts the process of creating a new date and time slot in the system.
     activate System
-        System --> Professional : asks for the options to filter and classify the data received based on different criteria, such as the date or type of service the professional wants to see.
+        System --> Professional : shows a table with times and dates that the professional can select to say that they are available.
     deactivate System
 
-    Professional -> System : fills different criteria available.
+    Professional -> System : fills in the date and time when he is available.
     activate System
         System --> Professional : validates and asks for confirmation
     deactivate System
 
     Professional -> System : confirms
     activate System
-        System --> Professional : shows the report for the selected criteria
+        System --> Professional : records the information and notifies the success of the operation
     deactivate System
 deactivate Professional
 
