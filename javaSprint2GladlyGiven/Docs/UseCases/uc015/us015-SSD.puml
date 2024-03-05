@@ -3,7 +3,7 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title System Sequence Diagram (SSD)
+title System Sequence Diagram (SSD) US015 - View previous medical information registered about the refugee
 
 autonumber
 
@@ -11,12 +11,13 @@ actor Professional
 participant ":System" as System
 
 activate Professional
-    Professional -> System : starts the process of creating a new date and time slot in the system.
+    Professional -> System : starts the process of requesting a previous medical information registered about the refugee report.
     activate System
-        System --> Professional : shows a table with times and dates that the professional can select to say that they are available.
+        System --> Professional : asks for the options to filter and sort reviews based on different criteria, such as date, rating, or type of service of the reviews the professional wants to see.
     deactivate System
 
-    Professional -> System : fills in the date and time when he is available.
+    Professional -> System : fills different criteria available.
+
     activate System
         System --> Professional : validates and asks for confirmation
     deactivate System

@@ -11,12 +11,12 @@ actor Professional
 participant ":System" as System
 
 activate Professional
-    Professional -> System : starts the process of creating a new date and time slot in the system.
+    Professional -> System : starts the process of creating a new solicitation with amount spent and the justification in the system.
     activate System
-        System --> Professional : shows a table with times and dates that the professional can select to say that they are available.
+        System --> Professional : shows the fields available to fill in and their rules.
     deactivate System
 
-    Professional -> System : fills in the date and time when he is available.
+    Professional -> System : fills  with amount spent and the justification.
     activate System
         System --> Professional : validates and asks for confirmation
     deactivate System

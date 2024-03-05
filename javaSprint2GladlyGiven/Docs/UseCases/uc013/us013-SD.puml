@@ -3,7 +3,8 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title Create a new date and time slot
+title Sequence Diagram (SD) - US013 - Provide date and time for scheduling
+
 
 autonumber
 
