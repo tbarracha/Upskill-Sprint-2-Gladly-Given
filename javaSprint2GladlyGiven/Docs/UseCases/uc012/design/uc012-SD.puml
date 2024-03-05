@@ -1,0 +1,79 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title UC012 - Register offered services
+
+autonumber
+
+actor ServiceProvider
+
+participant "RegisterServicesUI" as ui
+participant ":RegisterServicesController" as ctrl
+participant Repositories
+participant "servicesRepo : ServicesRepository" as servicesRepo
+participant "categoryRepo : CategoryRepository" as categoryRepo
+participant "serviceProviderRepo : ServiceProviderRepository" as serviceProviderRepo
+participant "service : Service" as service
+
+activate ServiceProvider
+    ServiceProvider -> ui : starts the process of register a service
+    activate ui
+        ui -> ctrl** : create()
+            ctrl -> "Repositories" : getCategoryRepository()
+                activate "Repositories"
+                    "Repositories" -> "Repositories" : CategoryRepository()
+                    "Repositories" --> ctrl : categoryRepo
+                deactivate "Repositories"
+            ctrl -> categoryRepo : getCategories()
+                activate categoryRepo
+                    categoryRepo -> categoryRepo : getCategories()
+                    categoryRepo --> ctrl : categoriesList
+                deactivate serviceRepo
+            ctrl --> ui : categoriesList
+            deactivate ctrl
+        ui --> ServiceProvider :displays a list of service provider categories
+    deactivate ui
+    ServiceProvider -> ui: selects a service provider category
+        ui -> ctrl: getServices(category)
+            activate ctrl
+            ctrl -> "Repositories" : getServicesRepository()
+                activate "Repositories"
+                    "Repositories" -> "Repositories" : ServicesRepository()
+                    "Repositories" --> ctrl : serviceRepo
+                deactivate "Repositories"
+            ctrl -> serviceRepo : getServicesByCategory(category)
+                activate serviceRepo
+                    serviceRepo -> serviceRepo : getServicesByCategory(category)
+                    serviceRepo --> ctrl : servicesList
+                deactivate serviceRepo
+            ctrl --> ui : servicesList
+            deactivate ctrl
+        ui --> ServiceProvider: displays services and ask the user to mark the ones he wants to add
+       deactivate ui
+    ServiceProvider -> ui : selects one or more services and confirm
+    activate ui
+        ui --> ServiceProvider :
+        ui -> ctrl : addServices(services)
+        activate ctrl
+            ctrl -> "Repositories" : getServiceProviderRepository()
+                activate "Repositories"
+                    "Repositories" -> "Repositories" : ServiceProviderRepository()
+                    "Repositories" --> ctrl : serviceProviderRepo
+                deactivate "Repositories"
+            ctrl -> serviceProviderRepo : getServiceProviderById(id)
+                serviceProviderRepo -> serviceProviderRepo : getServiceProviderById(id)
+                serviceProviderRepo --> ctrl : serviceProvider
+            ctrl -> serviceProviderRepo : addServices(serviceProviderId, services)
+                    serviceProviderRepo -> serviceProviderRepo : addServices(serviceProviderId, services)
+                    serviceProviderRepo -> serviceProviderRepo : save()
+                    serviceProviderRepo -> ctrl : success
+                 deactivate serviceProviderRepo
+            ctrl --> ui : success
+            deactivate ctrl
+            ui --> ServiceProvider : displays a confirmation message and finishes the process
+    deactivate ui
+deactivate ServiceProvider
+
+@enduml

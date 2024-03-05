@@ -3,7 +3,7 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title US012 - Register offered services -  System Sequence Diagram (SSD)
+title US012 - System Sequence Diagram (SSD)
 
 autonumber
 
@@ -18,7 +18,7 @@ activate SP
     SP -> System: selects a service provider category
 
     activate System
-        System --> SP : displays a list of services from the chosen category
+        System --> SP : displays a list of services of the chosen category
     deactivate System
     SP -> System : selects one or more services and confirm
 
@@ -26,5 +26,4 @@ activate SP
         System --> SP : system records the information
    deactivate System
 deactivate SP
-
 @enduml
