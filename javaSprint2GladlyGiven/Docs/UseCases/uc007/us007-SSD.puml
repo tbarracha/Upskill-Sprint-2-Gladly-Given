@@ -3,7 +3,7 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title US007 - Schedule an Appointment -  System Sequence Diagram (SSD)
+title US007 - System Sequence Diagram (SSD)
 
 autonumber
 

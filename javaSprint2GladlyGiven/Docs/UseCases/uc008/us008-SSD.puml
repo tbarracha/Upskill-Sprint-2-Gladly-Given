@@ -3,7 +3,7 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title UC008 - Evaluate Service Provider - System Sequence Diagram (SSD)
+title UC008 - System Sequence Diagram (SSD)
 
 autonumber
 
@@ -13,13 +13,13 @@ participant ":System" as System
 activate Refugee
     Refugee -> System : starts the process of rating an appointment
     activate System
-        System --> Refugee : shows a list of previous completed services
+        System --> Refugee : shows a list of previous services
     deactivate System
 
-    Refugee -> System : choose a previous service
+    Refugee -> System : choose a previous service to evaluate
 
     activate System
-        System --> Refugee : shows the service details and shows a 1 to 5 rating scale
+        System --> Refugee : displays the service details and shows a rating scale from 1 to 5
     deactivate System
     Refugee -> System : rate the service provider and write a short message (optional)
 
