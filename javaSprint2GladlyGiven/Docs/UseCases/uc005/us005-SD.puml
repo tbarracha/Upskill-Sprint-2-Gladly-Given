@@ -1,0 +1,43 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Search for a specific professional
+
+autonumber
+
+actor Refugee
+participant ":SearchProfessionalUI" as ui
+participant ":SearchProfessionalController" as ctrl
+participant Repositories
+participant "serviceProviderRepo : ServiceProviderRepository" as serviceProviderRepo
+
+activate Refugee
+
+    Refugee -> ui : initiates search for a service by a specific professional
+    activate ui
+        ui -> ctrl** : create()
+        ui -> ctrl : searchProfessional()
+        activate ctrl
+            ctrl -> Repositories : getServiceProviderRepository()
+            activate Repositories
+                Repositories -> Repositories : serviceProviderRepository()
+                Repositories-->ctrl : serviceProviderRepo
+            deactivate Repositories
+        deactivate ctrl
+            ui --> Refugee : prompts to enter the professional name
+            Refugee -> ui : provides the professional name
+        activate ctrl
+            ui -> ctrl : searchProfessional(name)
+            activate serviceProviderRepo
+                serviceProviderRepo -> serviceProviderRepo : searchByProfessionalName(name)
+                serviceProviderRepo --> serviceProviderRepo : serviceProviders
+            deactivate serviceProviderRepo
+            ctrl --> ui : displays list of services offered by the professional
+            ui --> Refugee : shows search results
+        deactivate ctrl
+    deactivate ui
+deactivate Refugee
+
+@enduml

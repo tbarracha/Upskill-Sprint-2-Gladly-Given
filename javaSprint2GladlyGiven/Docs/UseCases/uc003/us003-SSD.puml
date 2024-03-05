@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Register a Donor on the application (SSD)
+
+autonumber
+
+actor Donor
+participant ":System" as System
+
+activate Donor
+    Donor -> System : starts the registration process
+    activate System
+        System --> Donor : shows the attributes used to describe the donor
+        note right of System
+                                     Attributes to provide:
+                                     - First name
+                                     - Last name
+                                     - Phone number
+                                     - Email address
+                                     - Address (Street name, postal code, city, country)
+                                     - NIF
+                                     - Nationality
+                                     - Bank account informations (Bank name, IBAN, Bank account holder name)
+        end note
+    deactivate System
+
+    Donor -> System : fills the requested data
+    activate System
+        System --> Donor : validates and asks for confirmation
+    deactivate System
+
+    Donor -> System : confirms
+    activate System
+        System --> Donor : records the information and notifies the success of the operation
+    deactivate System
+deactivate Donor
+@enduml

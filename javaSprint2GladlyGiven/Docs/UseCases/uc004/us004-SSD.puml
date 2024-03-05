@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Search for a service by location and type of service (SSD)
+
+autonumber
+
+actor Refugee
+participant ":System" as System
+
+activate Refugee
+    Refugee -> System : starts the process of searching for a specific service on a specific location
+    activate System
+        System --> Refugee : shows all the types of services and requests location information
+    deactivate System
+
+    Refugee -> System : chooses one of the services types and fills the requested location
+    activate System
+        System --> Refugee : shows all the services providers according to the chosen service type and location, ordered by geographic proximity, validates and asks for confirmation
+    deactivate System
+
+    Refugee -> System : confirms
+    activate System
+        System --> Refugee : notifies the success of the operation
+    deactivate System
+deactivate Refugee
+@enduml

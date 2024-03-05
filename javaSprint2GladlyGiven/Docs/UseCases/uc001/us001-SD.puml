@@ -1,0 +1,63 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Register a Refugee on the application
+
+autonumber
+
+actor Refugee
+participant ":RegisterRefugeeUI" as ui
+participant ":RegisterRefugeeController" as ctrl
+participant Repositories
+participant "refugeeRepo : RefugeeRepository" as refugeeRepo
+
+activate Refugee
+
+    Refugee -> ui : starts the process of registering a new Refugee
+    activate ui
+        ui -> ctrl** : create()
+        ui -> ctrl : registerRefugee()
+        activate ctrl
+            ctrl -> Repositories : getRefugeeRepository()
+            activate Repositories
+                Repositories -> Repositories : refugeeRepository()
+                Repositories-->ctrl : refugeeRepo
+            deactivate Repositories
+        deactivate ctrl
+            ui --> Refugee : requests data (provided data*)
+            Refugee -> ui : fills requested data (provided data*)
+            ui -> ctrl : createRefugee(provided data*)
+        activate ctrl
+        activate refugeeRepo
+                refugeeRepo -> refugeeRepo : localValidation(provided data*)
+                refugeeRepo --> refugeeRepo : refugee
+        deactivate refugeeRepo
+            ctrl --> ui : success
+        deactivate ctrl
+    deactivate ui
+deactivate Refugee
+
+note left of "refugeeRepo : RefugeeRepository"
+    *Provided data*
+    - First name
+    - Last name
+    - Birth date
+    - Gender
+    - Nationality
+    - Country of origin
+    - Native language
+    - Other languages
+    - Marital status
+    - Phone number
+    - Email address
+    - Address(Street name, postal code, city and country)
+    - NIF
+    - NISS
+    - SNS number
+    - Emergency contact (first name, last name, phone number, email address)
+    - Medical history
+end note
+
+@enduml
