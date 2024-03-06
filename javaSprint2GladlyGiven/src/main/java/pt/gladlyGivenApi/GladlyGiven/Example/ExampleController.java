@@ -1,3 +1,6 @@
+// Author: Tiago Barracha
+// ti.barracha@gmail.com
+
 package pt.gladlyGivenApi.GladlyGiven.Example;
 
 import org.springframework.beans.factory.annotation.Autowired;

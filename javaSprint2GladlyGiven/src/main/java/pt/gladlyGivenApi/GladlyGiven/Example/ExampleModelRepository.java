@@ -1,3 +1,6 @@
+// Author: Tiago Barracha
+// ti.barracha@gmail.com
+
 package pt.gladlyGivenApi.GladlyGiven.Example;
 
 import org.springframework.data.jpa.repository.JpaRepository;

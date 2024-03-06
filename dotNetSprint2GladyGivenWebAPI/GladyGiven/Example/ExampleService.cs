@@ -1,4 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// Author: Tiago Barracha
+// ti.barracha@gmail.com
+
+
+using Microsoft.EntityFrameworkCore;
 
 namespace GladyGivenWebAPI.Example
 {

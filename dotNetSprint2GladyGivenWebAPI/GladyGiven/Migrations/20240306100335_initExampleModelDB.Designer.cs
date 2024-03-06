@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GladyGivenWebAPI.Migrations
 {
     [DbContext(typeof(ExampleDBContext))]
-    [Migration("20240305212654_exampleConnection")]
-    partial class exampleConnection
+    [Migration("20240306100335_initExampleModelDB")]
+    partial class initExampleModelDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

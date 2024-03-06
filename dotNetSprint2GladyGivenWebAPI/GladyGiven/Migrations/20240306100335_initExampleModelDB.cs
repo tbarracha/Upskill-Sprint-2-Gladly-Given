@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GladyGivenWebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class exampleConnection : Migration
+    public partial class initExampleModelDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

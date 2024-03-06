@@ -1,4 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿// Author: Tiago Barracha
+// ti.barracha@gmail.com
+
+
+using System.ComponentModel.DataAnnotations;
 
 namespace GladyGivenWebAPI.Example
 {

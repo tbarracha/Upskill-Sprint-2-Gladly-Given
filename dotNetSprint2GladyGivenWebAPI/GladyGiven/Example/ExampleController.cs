@@ -1,3 +1,7 @@
+// Author: Tiago Barracha
+// ti.barracha@gmail.com
+
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace GladyGivenWebAPI.Example
@@ -13,10 +17,10 @@ namespace GladyGivenWebAPI.Example
             service = new ExampleService(context);
         }
 
-        [HttpGet("~/api/health")]
+        [HttpGet("~/api/health")] // landing
         public ActionResult<string> Health()
         {
-            return Ok("API is working fine!");
+            return Ok("Entity API is working fine!");
         }
 
         [HttpGet]
