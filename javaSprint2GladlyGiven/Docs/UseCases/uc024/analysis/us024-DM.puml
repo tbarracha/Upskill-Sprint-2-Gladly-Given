@@ -1,0 +1,49 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+skinparam classAttributeIconSize 0
+
+hide circle
+hide methods
+
+title US024 - Cancel or reschedule an appointment
+
+class Appointment {
+    Id
+    Date
+    Time
+    Place
+    Status
+}
+
+class Service {
+    Id
+    Name
+    Category
+}
+
+class ServiceCategory {
+    Id
+    Name
+}
+
+class Refugee {
+    Refugee Number Protocol
+    First Name
+    Last Name
+    Address
+    Email
+    Phone Number
+    Nationality
+    Country of Origin
+    Native Language
+}
+
+
+Refugee "1   " - "   *" Appointment : cancels/reschedules an >
+Appointment " *   " - "   1" Service : is related to a >
+Service " 1   " - "   1" ServiceCategory : has a >
+
+@enduml

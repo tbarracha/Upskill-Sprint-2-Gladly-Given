@@ -1,0 +1,59 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Sequence Diagram (SD) - US013 - Provide date and time for scheduling
+
+
+autonumber
+
+actor Professional
+participant ":CreateSlotDateTimeUI" as ui
+participant ":CreateSlotDateTimeController" as ctrl
+participant Repositories
+participant "slotDataTimeRepo : SlotDataTimeRepository" as SlotDataTimeRepo
+
+
+activate Professional
+    Professional -> ui : starts the process of creating a new date and time slot in the system
+    activate ui
+        ui -> ctrl** : create()
+        ui -> ctrl : GetCalendarDateTime()
+        activate ctrl
+            ctrl --> ui : CalendarDateTimeList
+            deactivate ctrl
+            ui --> Professional : shows date time and  available and requests data
+    deactivate ui
+
+    Professional -> ui : fills in the date and time when he is available.
+    activate ui
+        ui -> ctrl : createSlotDataTime(idSlotDateTime, dateSlotAvailable, timeSlotAvailable, idProfAvailable, typeServiceProfAvailable)
+        activate ctrl
+            ctrl -> Repositories : create()
+            activate Repositories
+                Repositories -> Repositories : localValidation()
+                Repositories --> ctrl : SlotDataTime
+            deactivate Repositories
+            ctrl --> ui : SlotDataTime
+        deactivate ctrl
+        ui --> Professional : validates and asks for confirmation
+    deactivate ui
+
+    Professional -> ui : confirms
+    activate ui
+        ui -> ctrl : save()
+        activate ctrl
+            ctrl -> SlotDataTimeRepo : save(SlotDataTime)
+            activate SlotDataTimeRepo
+                SlotDataTimeRepo -> SlotDataTimeRepo : globalValidation(SlotDataTime)
+                SlotDataTimeRepo -> SlotDataTimeRepo : add(SlotDataTime)
+                SlotDataTimeRepo --> ctrl : success
+            deactivate SlotDataTimeRepo
+            ctrl --> ui : success
+        deactivate ctrl
+        ui --> Professional : records the information and notifies the success of the operation
+    deactivate ui
+deactivate Professional
+
+@enduml

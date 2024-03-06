@@ -1,0 +1,70 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title US023 - Request registration for a new service.
+
+autonumber
+
+actor Professional as prof
+participant ":ServiceRequestUI" as ui
+participant ":ServiceRequestController" as ctrl
+participant Repositories as repo
+participant "serviceCategoryRepo : ServiceCategoryRepo" as serviceCatRepo
+participant "serviceRequestRepo : ServiceRequestRepo" as serviceReqRepo
+participant "serviceRequest : ServiceRequest" as serviceReq
+
+activate prof
+    prof -> ui : starts the process of creating a request for a new service
+    activate ui
+        ui -> ctrl : createServRequest( )
+        activate ctrl
+            ctrl -> repo : getServCategoryRepo( )
+            activate repo
+                repo -> repo : getServCategoryRepo( )
+                repo --> ctrl : serviceCategoryRepo
+            deactivate repo
+            ctrl -> serviceCatRepo : getAllServicesCategoryByName( )
+            activate serviceCatRepo
+                serviceCatRepo -> serviceCatRepo : getAllServicesCategoryByName( )
+                serviceCatRepo --> ctrl : servicesCategoryList
+            deactivate serviceCatRepo
+            ctrl --> ui : servicesCategoryList
+        deactivate ctrl
+        ui --> prof : shows a list of services category and request data
+    deactivate ui
+    prof -> ui : fills requested data (name, service category)
+    activate ui
+        ui -> ctrl : createServiceRequest(name, service category)
+        activate ctrl
+            ctrl -> serviceReqRepo : createServiceRequest(name, service category)
+            activate serviceReqRepo
+                serviceReqRepo -> serviceReq** : create( )
+                activate serviceReq
+                    serviceReq -> serviceReq : localValidation( )
+                    serviceReq -> serviceReqRepo : serviceRequest
+                deactivate serviceReq
+                serviceReqRepo -> serviceReqRepo : globalValidation(serviceRequest)
+                serviceReqRepo --> ctrl : serviceRequest
+            deactivate serviceReqRepo
+            ctrl --> ui : serviceRequest
+        deactivate ctrl
+        ui --> prof : validates and asks for confirmation
+    deactivate ui
+    prof -> ui : confirms
+    activate ui
+        ui -> ctrl : save( )
+        activate ctrl
+            ctrl -> serviceReqRepo : save(serviceRequest)
+            activate serviceReqRepo
+                serviceReqRepo -> serviceReqRepo : add(serviceRequest)
+                serviceReqRepo --> ctrl : success
+            deactivate serviceReqRepo
+            ctrl --> ui : success
+        deactivate ctrl
+        ui --> prof : records the information and notifies the success of the operation
+    deactivate ui
+deactivate prof
+
+@enduml

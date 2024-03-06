@@ -1,0 +1,26 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) - US023 - Request registration for a new service
+
+
+autonumber
+
+actor Administrator as admin
+participant ":System" as System
+
+activate admin
+    admin -> System : starts the process of requesting a new type of service
+    activate System
+        System --> admin : requests data
+        admin -> System : fills the requested data (category of service and description)
+        System --> admin : validates and asks for confirmation
+        admin -> System : confirms
+        System --> admin : records the information and notifies the success of operation
+    deactivate System
+deactivate admin
+
+
+@enduml

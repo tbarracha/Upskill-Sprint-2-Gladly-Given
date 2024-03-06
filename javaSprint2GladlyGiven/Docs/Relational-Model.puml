@@ -1,0 +1,110 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+'left to right direction
+
+skinparam classAttributeIconSize 0
+
+hide circle
+hide methods
+
+title Glady Given - Relational Model
+
+class Administrator {
+    administratorID [pk]
+    name
+    email
+    username
+    password
+}
+
+class Address {
+    streetName
+    postalCode
+    city
+    country
+}
+
+class Professional {
+    professionalID [pk]
+    firstName
+    lastName
+    birthDate
+    gender
+    phoneNumber
+    email
+    address
+    nif
+    nationality
+    nativeLanguage
+    otherLanguages
+    licenseNumber
+    profession
+    category
+    bankAccountInfoId [fk]
+}
+
+class BankAccountInfo {
+    bankAccountInfoId [pk]
+    bankName
+    IBAN
+    bankAccountHolderName
+}
+
+class Donor {
+    donorID [pk]
+    firstName
+    lastName
+    phoneNumber
+    email
+    type
+    bankAccountInfoId [fk]
+}
+
+class Refugee {
+    refugeeID [pk]
+    firstName
+    lastName
+    birthDate
+    gender
+    phoneNumber
+    email
+    address
+    nif
+    niss
+    snsNumber
+    nationality
+    countryOfOrigin
+    nativeLanguage
+    maritalStatus
+    medicalHistoryId [fk]
+}
+
+class EmergencyContact {
+     emergencyContactId[pk]
+     firstName
+     lastName
+     phoneNumber
+     email
+     refugeeID [fk]
+}
+
+class MedicalHistory {
+    medicalHistoryId [pk]
+    medication
+    diseases
+    allergies
+}
+
+Refugee  "1" --down "     *" EmergencyContact : has >
+Refugee  "1" --down "     1" Address : has >
+Refugee  "1" --down "     1" MedicalHistory: has >
+Professional  "1" --down "     1" BankAccountInfo: has >
+Donor  "1" --down "     1" BankAccountInfo: has >
+Administrator "1" --down "     *" Professional : manages >
+Administrator "1" --down "    *" Donor : manages >
+Administrator "1" --down "     *" Refugee : manages >
+
+@enduml

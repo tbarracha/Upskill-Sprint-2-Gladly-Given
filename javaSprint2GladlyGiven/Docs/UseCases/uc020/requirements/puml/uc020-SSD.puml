@@ -1,0 +1,23 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) - US020 - View monthly reports
+
+autonumber
+
+actor Donor
+participant ":System" as System
+
+activate Donor
+    Donor -> System : starts the process of requesting a financial report
+    activate System
+        System --> Donor : requests data
+        Donor -> System : fills requested data (month)
+        System --> Donor : displays the month report.
+    deactivate System
+deactivate Donor
+
+
+@enduml

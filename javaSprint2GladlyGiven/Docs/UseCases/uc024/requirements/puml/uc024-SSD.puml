@@ -1,0 +1,29 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title system Sequence Diagram (SSD) - US024 - Cancel or reschedule an appointment
+
+
+
+autonumber
+
+actor Refugee as refugee
+participant ":System" as system
+
+activate refugee
+    refugee -> system : starts the process of canceling or rescheduling the appointment
+    activate system
+        system --> refugee : requests data
+        refugee -> system : fills the requested data (cancellation or rescheduling)
+        system --> refugee : requests more data
+        refugee -> system : fills the requested data (appointment date and time)
+        system --> refugee : validates and asks for confirmation
+        refugee -> system : confirms
+        system --> refugee : records the information and notifies the success of operation
+    deactivate system
+deactivate refugee
+
+
+@enduml
