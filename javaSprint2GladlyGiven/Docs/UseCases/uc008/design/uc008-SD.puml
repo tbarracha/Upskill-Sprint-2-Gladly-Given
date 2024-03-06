@@ -1,0 +1,63 @@
+@startuml
+
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title UC008 - Evaluate Service Provider
+autonumber
+
+actor Refugee
+
+participant "EvaluateServiceProviderUI" as ui
+participant "EvaluateServiceController" as ctrl
+participant "Repositories"
+participant "servicesRepo : ServicesRepository" as servicesRepo
+participant "evaluationRepo : ServicesEvaluationsRepository" as evaluationRepo
+participant "evaluation : Evaluation" as evaluation
+
+activate Refugee
+    Refugee -> ui : starts the process of evaluating an appointment
+    activate ui
+        ui -> ctrl : getPreviousServices()
+        activate ctrl
+            ctrl -> Repositories : getServicesRepository()
+                activate Repositories
+                    "Repositories" -> "Repositories" : servicesRepository()
+                    "Repositories" --> ctrl : servicesRepo
+                deactivate "Repositories"
+            ctrl -> servicesRepo : getPreviousServices(int refugeeId)
+                activate servicesRepo
+                    servicesRepo -> servicesRepo : getServicesByRefugee(int refugeeId)
+                    servicesRepo --> ctrl : previousServices
+                deactivate servicesRepo
+            ctrl --> ui : previousServices
+        deactivate ctrl
+        ui --> Refugee : shows a list of previous appointments/services
+    deactivate ui
+
+    Refugee -> ui : chooses a previous service to evaluate
+        activate ui
+            ui --> Refugee : displays the service details and shows a rating scale from 1 to 5
+        deactivate ui
+    Refugee -> ui : rate the service provider and write a short message (optional)
+        activate ui
+        ui -> ctrl : saveEvaluation()
+            activate ctrl
+                ctrl -> evaluationRepo : saveEvaluation()
+                activate evaluationRepo
+                    evaluationRepo -> evaluation** : createEvaluation()
+                        activate evaluation
+                            evaluation -> evaluation : localValidation()
+                            evaluation --> evaluationRepo : evaluation
+                        deactivate evaluation
+                    evaluationRepo -> evaluationRepo : globalValidation(evaluation)
+                    evaluationRepo -> evaluationRepo : save(evaluation)
+                    evaluationRepo --> ctrl : success
+                deactivate evaluationRepo
+            ctrl --> ui : success
+            deactivate ctrl
+        ui --> Refugee: records the information and shows a possible rating edition;
+deactivate Refugee
+
+@enduml

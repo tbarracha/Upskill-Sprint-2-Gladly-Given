@@ -1,0 +1,87 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title US021 - Validate the registration of a professional/refugee
+
+autonumber
+
+actor Administrator as admin
+participant ":RegisterRequestUI" as ui
+participant ":RegisterRequestController" as ctrl
+participant Repositories as repo
+participant "registerRequestRepo : RegisterRequestRepo" as registerReqRepo
+participant "registerRepo : RegisterRepo" as registerRepo
+participant "userRepo : UserRepo" as userRepo
+participant "registerRequest : RegisterRequest" as registerReq
+participant "user : User" as user
+
+activate admin
+    admin -> ui : starts the process of accepting/rejecting a request for a register
+    activate ui
+        ui -> ctrl : getRegisterRequest( )
+        activate ctrl
+            ctrl -> repo : getRegisterRequestRepo( )
+            activate repo
+                repo -> repo : getRegisterRequestRepo( )
+                repo --> ctrl : registerRequestRepo
+            deactivate repo
+            ctrl -> registerReqRepo : getRegisterRequest( )
+            activate registerReqRepo
+                registerReqRepo -> registerReqRepo : getRegisterRequest( )
+                registerReqRepo --> ctrl : registerRequestList
+            deactivate registerReqRepo
+            ctrl --> ui : registerRequestList
+        deactivate ctrl
+        ui --> admin : shows a list of register requests and request data
+    deactivate ui
+    admin -> ui : selects the register request
+    activate ui
+        ui -> ctrl : getUserRepo( )
+        activate ctrl
+            ctrl -> repo : getUserRepo( )
+            activate repo
+                 repo -> repo : getUserRepo( )
+                 repo --> ctrl : userRepo
+            deactivate repo
+            ctrl -> userRepo : getUser( )
+            activate userRepo
+                userRepo -> userRepo : getUser( )
+                userRepo --> ctrl : user
+            deactivate userRepo
+            ctrl --> ui : user
+        deactivate ctrl
+        ui --> admin : user
+    deactivate ui
+    admin -> ui : analyzes users information and accepts/rejects a register request
+    activate ui
+        ui -> ctrl : updateRegisterRequestStatus(registerRequest)
+        activate ctrl
+            ctrl -> registerReqRepo : updateRegisterRequestStatus(registerRequest)
+            activate registerReqRepo
+                registerReqRepo -> registerReq** : update( )
+                activate registerReq
+                    registerReq -> registerReq : localValidation( )
+                    registerReq -> registerReqRepo : registerRequest
+                    deactivate registerReq
+                registerReqRepo -> registerReqRepo : globalValidation(registerRequest)
+                registerReqRepo --> ctrl : registerRequest
+            deactivate registerReqRepo
+            ctrl -> userRepo : save(register)
+            activate userRepo
+                userRepo -> user** : save( )
+                activate user
+                    user -> user : add( )
+                    user --> userRepo : user
+                deactivate user
+                userRepo -> userRepo : save(user)
+                userRepo --> ctrl : success
+            deactivate userRepo
+            ctrl --> ui : success
+        deactivate ctrl
+        ui --> admin : records the information and notifies the success of the operation
+    deactivate ui
+deactivate admin
+
+@enduml

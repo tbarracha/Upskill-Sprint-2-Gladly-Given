@@ -1,0 +1,108 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title US022 - Accept the request for an appointment
+
+autonumber
+
+actor Professional as prof
+participant ":AppointmentRequestUI" as ui
+participant ":AppointmentRequestController" as ctrl
+participant Repositories as repo
+participant "appRequestRepo : AppRequestRepo" as appRequestRepo
+participant "appointmentRepo : AppointmentRepo" as appRepo
+participant "refugeeRepo : RefugeeRepo" as refugeeRepo
+participant "appointmentRequest : AppointmentRequest" as appRequest
+participant "appointment : Appointment" as appointment
+
+activate prof
+    prof -> ui : starts the process of accepting/rejecting a request for an appointment
+    activate ui
+        ui -> ctrl : getAppointmentRequest( )
+        activate ctrl
+            ctrl -> repo : getAppRequestRepo( )
+            activate repo
+                repo -> repo : getAppRequestRepo( )
+                repo --> ctrl : appRequestRepo
+            deactivate repo
+            ctrl -> appRequestRepo : getAllAppRequestByProfessional(professionalId)
+            activate appRequestRepo
+                appRequestRepo -> appRequestRepo : getAllAppRequestByProfessional(professionalId)
+                appRequestRepo --> ctrl : appRequestList
+            deactivate appRequestRepo
+            ctrl --> ui : appRequestList
+        deactivate ctrl
+        ui --> prof : shows a list of appointments and request data
+    deactivate ui
+    prof -> ui : selects the appointment request
+    activate ui
+        ui -> ctrl : getRefugeeRepo( )
+        activate ctrl
+            ctrl -> repo : getRefugeeRepo( )
+            activate repo
+                 repo -> repo : getRefugeeRepo( )
+                 repo --> ctrl : refugeeRepo
+            deactivate repo
+            ctrl -> refugeeRepo : getRefugee(appRequestRefugeeId)
+            activate refugeeRepo
+                refugeeRepo -> refugeeRepo : getRefugee(appRequestRefugeeId)
+                refugeeRepo --> ctrl : refugee
+            deactivate refugeeRepo
+            ctrl --> ui : refugee
+        deactivate ctrl
+        ui --> prof : refugee
+    deactivate ui
+    prof -> ui : analyzes refugee medical information and accepts/rejects an appointment
+    activate ui
+        ui -> ctrl : updateAppRequestStatus(appRequest)
+        activate ctrl
+            ctrl -> appRequestRepo : updateAppRequestStatus(appRequest)
+            activate appRequestRepo
+                appRequestRepo -> appRequest** : update( )
+                activate appRequest
+                    appRequest -> appRequest : localValidation( )
+                    appRequest -> appRequestRepo : appRequest
+                    deactivate appRequest
+                appRequestRepo -> appRequestRepo : globalValidation(appRequest)
+                appRequestRepo --> ctrl : appRequest
+            deactivate appRequestRepo
+            ctrl --> ui : appRequest
+        deactivate ctrl
+        ui --> prof : validates and asks for confirmation
+    deactivate ui
+    prof -> ui : confirms
+    activate ui
+        ui -> ctrl : save( )
+        activate ctrl
+            ctrl -> appRequestRepo : save(appRequest)
+            activate appRequestRepo
+                appRequestRepo -> appRequestRepo : save(appRequest)
+                appRequestRepo --> ctrl : success
+            deactivate appRequestRepo
+            ctrl --> repo : getAppointmentRepo( )
+            activate repo
+                repo -> repo : getAppointmentRepo( )
+                repo --> ctrl : appointmentRepo
+            deactivate repo
+            ctrl -> appointmentRepo : getAppointment(appointmentId)
+            activate appointmentRepo
+                appointmentRepo -> appointmentRepo : getAppointment(appointmentId)
+                appointmentRepo --> ctrl : appointment
+            deactivate appointmentRepo
+            ctrl -> appointmentRepo : updatesStatus(appointment)
+            activate appointmentRepo
+                appointmentRepo -> appointment** : update( )
+                    activate appointment
+                        appointment -> appointment : save( )
+                    deactivate appointment
+                    appointmentRepo --> ctrl : success
+            deactivate appointmentRepo
+            ctrl --> ui : success
+        deactivate ctrl
+        ui --> prof : records the information and notifies the success of the operation
+    deactivate ui
+deactivate prof
+
+@enduml

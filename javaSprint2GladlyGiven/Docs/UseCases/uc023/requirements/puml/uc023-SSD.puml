@@ -1,0 +1,26 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) - US023 - Service Provider requests registration for a new service
+
+
+autonumber
+
+actor ServiceProvider as sp
+participant ":System" as System
+
+activate sp
+    sp -> System : starts the process of requesting a new type of service
+    activate System
+        System --> sp : requests data
+        sp -> System : fills the requested data (category of service and description)
+        System --> sp : validates and asks for confirmation
+        sp -> System : confirms
+        System --> sp : records the information and notifies the success of operation
+    deactivate System
+deactivate sp
+
+
+@enduml

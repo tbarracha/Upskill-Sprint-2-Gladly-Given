@@ -1,0 +1,71 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+left to right direction
+'top to bottom direction
+title Gladly Given - Use Case Diagram
+
+actor "Refugee" as Ref
+actor "Donor" as Don
+actor "Professional" as Pro
+actor "Administrator" as Adm
+
+usecase "UC01 - Register Refugee on the application" as UC01
+usecase "UC02 - Register a Professional on the application" as UC02
+usecase "UC03 - Register a Donor on the application" as UC03
+usecase "UC04 - Search for a service by location and type of service" as UC04
+usecase "UC05 - Search for a specific professional" as UC05
+usecase "UC06 - Visualize a list of services available" as UC06
+usecase "UC07 - Make an appointment" as UC07
+usecase "UC08 - Evaluate the professional" as UC08
+usecase "UC09 - Choose the application language " as UC09
+usecase "UC010 - View health centers near me" as UC010
+usecase "UC011 - View frequently asked questions" as UC011
+usecase "UC012 - Register offered services" as UC012
+usecase "UC013 - Provide date and time for scheduling" as UC013
+usecase "UC014 - Check my reviews" as UC014
+usecase "UC015 - View previous medical information registered about the refugee" as UC015
+usecase "UC016 - Request service-related cost support" as UC016
+usecase "UC017 - Receive service-related cost support" as UC017
+usecase "UC018 - Choose the amount of money" as UC018
+usecase "UC019 - Choose the donation type" as UC019
+usecase "UC020 - View monthly reports" as UC020
+usecase "UC021 - Validate the registration of a user/refugee" as UC021
+usecase "UC022 - Accept the request for an appointment" as UC022
+usecase "UC023 - Request registration for a new service" as UC023
+usecase "UC024 - Cancel or reschedule an appointment" as UC024
+usecase "UC025 - View a list of donations I made" as UC025
+usecase "UC026 - Validate the request for service-related cost support" as UC026
+
+
+
+Ref -down-> UC01
+Pro -down-> UC02
+Don -down-> UC03
+Ref -down-> UC04
+Ref -down-> UC05
+Ref -down-> UC06
+Ref -down-> UC07
+Ref -down-> UC08
+Ref -down-> UC09
+Ref -down-> UC010
+Don -down-> UC011
+Pro -down-> UC011
+Ref -down-> UC011
+Pro -down-> UC012
+Pro -down-> UC013
+Pro -down-> UC014
+Pro -down-> UC015
+Pro -down-> UC016
+Pro -down-> UC017
+Don -down-> UC018
+Don -down-> UC019
+Don -down-> UC020
+Adm -down-> UC021
+Pro -down-> UC022
+Pro -down-> UC023
+Ref -down-> UC024
+Don -down-> UC025
+Adm -down-> UC026
+
+@enduml

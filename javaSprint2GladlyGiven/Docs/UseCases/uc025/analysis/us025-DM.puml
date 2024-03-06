@@ -1,0 +1,39 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+skinparam classAttributeIconSize 0
+
+hide circle
+hide methods
+
+title UC025 - Donor views a list of donations made
+
+class Donation {
+    Id
+    Value
+    Donation Type
+    Date
+    Payment Method
+}
+
+class DonationType {
+    Id
+    Name
+}
+
+class Donor {
+    Id
+    First Name
+    Last Name
+    Address
+    NIF/NIPC
+    Email
+    Phone Number
+}
+
+Donor "1   " - "   *" Donation : makes a >
+Donation "1   " - "   1" DonationType : has a >
+
+@enduml
