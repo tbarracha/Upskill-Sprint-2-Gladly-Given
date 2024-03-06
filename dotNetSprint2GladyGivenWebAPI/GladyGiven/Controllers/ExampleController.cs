@@ -2,6 +2,7 @@
 // ti.barracha@gmail.com
 
 
+using GladyGivenWebAPI.Data;
 using GladyGivenWebAPI.Example;
 using Microsoft.AspNetCore.Mvc;
 
