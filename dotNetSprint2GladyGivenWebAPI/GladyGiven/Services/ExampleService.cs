@@ -2,6 +2,7 @@
 // ti.barracha@gmail.com
 
 
+using GladyGivenWebAPI.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace GladyGivenWebAPI.Example
