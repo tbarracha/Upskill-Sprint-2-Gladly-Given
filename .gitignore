@@ -1,3 +1,4 @@
 dotNetSprint2GladyGivenWebAPI/GladyGiven/NeonStaticConnectionStringBuilder.cs
 *.vsidx
-dotNetSprint2GladyGivenWebAPI/.vs/dotNetSprint2GladyGivenWebAPI/v17/.suo
+*.suo
+
