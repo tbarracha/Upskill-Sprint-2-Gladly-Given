@@ -1,5 +1,5 @@
 using GladyGivenWebAPI;
-using GladyGivenWebAPI.Example;
+using GladyGivenWebAPI.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace GladyGiven

@@ -1,10 +1,12 @@
 // Author: Tiago Barracha
 // ti.barracha@gmail.com
 
-package pt.gladlyGivenApi.GladlyGiven.Example;
+package pt.gladlyGivenApi.GladlyGiven.Services;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import pt.gladlyGivenApi.GladlyGiven.Models.ExampleModel;
+import pt.gladlyGivenApi.GladlyGiven.Repositories.ExampleModelRepository;
 
 import java.util.List;
 

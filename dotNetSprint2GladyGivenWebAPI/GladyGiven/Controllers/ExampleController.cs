@@ -2,9 +2,10 @@
 // ti.barracha@gmail.com
 
 
+using GladyGivenWebAPI.Example;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GladyGivenWebAPI.Example
+namespace GladyGivenWebAPI.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
@@ -30,7 +31,7 @@ namespace GladyGivenWebAPI.Example
 
             if (models != null && models.Count > 0)
                 return Ok(models);
-            
+
             return NoContent();
         }
 

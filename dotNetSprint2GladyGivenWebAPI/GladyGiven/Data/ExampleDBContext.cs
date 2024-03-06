@@ -2,9 +2,10 @@
 // ti.barracha@gmail.com
 
 
+using GladyGivenWebAPI.Example;
 using Microsoft.EntityFrameworkCore;
 
-namespace GladyGivenWebAPI.Example
+namespace GladyGivenWebAPI.Data
 {
     public class ExampleDBContext : DbContext
     {
