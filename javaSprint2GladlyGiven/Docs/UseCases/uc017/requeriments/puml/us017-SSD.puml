@@ -1,0 +1,30 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) US017 - Receive service-related cost support
+
+autonumber
+
+actor Professional
+participant ":System" as System
+
+activate Professional
+    Professional -> System : starts the process of requesting a receiving report.
+    activate System
+        System --> Professional : asks for the options to filter and classify the data received based on different criteria, such as the date or type of service the professional wants to see.
+    deactivate System
+
+    Professional -> System : fills different criteria available.
+    activate System
+        System --> Professional : validates and asks for confirmation
+    deactivate System
+
+    Professional -> System : confirms
+    activate System
+        System --> Professional : shows the report for the selected criteria
+    deactivate System
+deactivate Professional
+
+@enduml

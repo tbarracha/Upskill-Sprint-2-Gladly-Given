@@ -1,0 +1,32 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram - US018 - Choose the amount of money
+
+autonumber
+
+actor Donor
+participant ":System" as System
+
+activate Donor
+    Donor -> System : starts the process of donating an amount
+    activate System
+        System --> Donor : shows a table (some buttons) with the amount that the donor can select, or type in
+    deactivate System
+    Donor -> System : select or type in the amount of money
+    activate System
+        System --> Donor : requests more data
+    deactivate System
+    Donor -> System : fills requested data (payment method information)
+    activate System
+        System --> Donor : validates and asks for confirmation
+    deactivate System
+    Donor -> System : confirms
+    activate System
+        System --> Donor : records the information and notifies the success of the operation
+    deactivate System
+deactivate Professional
+
+@enduml

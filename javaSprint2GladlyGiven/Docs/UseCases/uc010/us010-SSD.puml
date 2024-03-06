@@ -1,0 +1,20 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title UC010 - View FAQ - System Sequence Diagram (SSD)
+
+autonumber
+
+actor SystemUser
+participant ":System" as System
+
+activate SystemUser
+    SystemUser -> System : select FAQ page
+    activate System
+        System --> SystemUser : shows a list of frequently asked questions
+    deactivate System
+deactivate SystemUser
+
+@enduml
