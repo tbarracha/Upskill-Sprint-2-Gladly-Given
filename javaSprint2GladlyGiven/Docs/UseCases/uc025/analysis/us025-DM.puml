@@ -8,7 +8,7 @@ skinparam classAttributeIconSize 0
 hide circle
 hide methods
 
-title UC025 - View a list of donations I made.
+title UC025 - Donor views a list of donations made
 
 class Donation {
     Id
@@ -16,6 +16,11 @@ class Donation {
     Donation Type
     Date
     Payment Method
+}
+
+class DonationType {
+    Id
+    Name
 }
 
 class Donor {
@@ -29,5 +34,6 @@ class Donor {
 }
 
 Donor "1   " - "   *" Donation : makes a >
+Donation "1   " - "   1" DonationType : has a >
 
 @enduml

@@ -3,7 +3,7 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title UC025 - View a list of donations I made.
+title UC025 - Donor views a list of donations made
 
 autonumber
 

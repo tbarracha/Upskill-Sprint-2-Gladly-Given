@@ -3,10 +3,7 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title System Sequence Diagram (SSD) - UC026 - Validate the request for service-related cost support
-
-
-
+title System Sequence Diagram (SSD) - UC026 - Administrator validates the request for service-related cost support
 
 autonumber
 

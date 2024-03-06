@@ -3,11 +3,11 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title US023 - Request registration for a new service.
+title US023 - Service Provider requests registration for a new service
 
 autonumber
 
-actor Professional as prof
+actor ServiceProvider as sp
 participant ":ServiceRequestUI" as ui
 participant ":ServiceRequestController" as ctrl
 participant Repositories as repo
@@ -15,8 +15,8 @@ participant "serviceCategoryRepo : ServiceCategoryRepo" as serviceCatRepo
 participant "serviceRequestRepo : ServiceRequestRepo" as serviceReqRepo
 participant "serviceRequest : ServiceRequest" as serviceReq
 
-activate prof
-    prof -> ui : starts the process of creating a request for a new service
+activate sp
+    sp -> ui : starts the process of creating a request for a new service
     activate ui
         ui -> ctrl : createServRequest( )
         activate ctrl
@@ -32,9 +32,9 @@ activate prof
             deactivate serviceCatRepo
             ctrl --> ui : servicesCategoryList
         deactivate ctrl
-        ui --> prof : shows a list of services category and request data
+        ui --> sp : shows a list of services category and request data
     deactivate ui
-    prof -> ui : fills requested data (name, service category)
+    sp -> ui : fills requested data (name, service category)
     activate ui
         ui -> ctrl : createServiceRequest(name, service category)
         activate ctrl
@@ -50,9 +50,9 @@ activate prof
             deactivate serviceReqRepo
             ctrl --> ui : serviceRequest
         deactivate ctrl
-        ui --> prof : validates and asks for confirmation
+        ui --> sp : validates and asks for confirmation
     deactivate ui
-    prof -> ui : confirms
+    sp -> ui : confirms
     activate ui
         ui -> ctrl : save( )
         activate ctrl
@@ -63,8 +63,8 @@ activate prof
             deactivate serviceReqRepo
             ctrl --> ui : success
         deactivate ctrl
-        ui --> prof : records the information and notifies the success of the operation
+        ui --> sp : records the information and notifies the success of the operation
     deactivate ui
-deactivate prof
+deactivate sp
 
 @enduml

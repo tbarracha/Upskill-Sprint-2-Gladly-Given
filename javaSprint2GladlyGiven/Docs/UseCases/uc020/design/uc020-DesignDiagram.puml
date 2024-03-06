@@ -3,7 +3,7 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title US020 - View monthly reports
+title US020 - Donor views donation reports
 
 autonumber
 

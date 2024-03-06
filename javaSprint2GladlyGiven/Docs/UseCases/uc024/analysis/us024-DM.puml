@@ -8,7 +8,7 @@ skinparam classAttributeIconSize 0
 hide circle
 hide methods
 
-title US024 - Cancel or reschedule an appointment
+title US024 - Refugee cancels or reschedules an appointment
 
 class Appointment {
     Id

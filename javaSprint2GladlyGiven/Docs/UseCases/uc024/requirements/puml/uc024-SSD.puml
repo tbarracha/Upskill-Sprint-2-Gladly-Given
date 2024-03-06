@@ -3,7 +3,7 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title system Sequence Diagram (SSD) - US024 - Cancel or reschedule an appointment
+title system Sequence Diagram (SSD) - US024 - Refugee cancels or reschedules an appointment
 
 
 

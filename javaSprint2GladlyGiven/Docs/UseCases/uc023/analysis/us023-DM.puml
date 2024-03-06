@@ -8,7 +8,7 @@ skinparam classAttributeIconSize 0
 hide circle
 hide methods
 
-title US023 - Request registration for a new service.
+title US023 - Service Provider requests registration for a new service.
 
 class ServiceRequest {
     Id
@@ -30,7 +30,7 @@ class ServiceCategory {
 }
 
 
-class Professional {
+class ServiceProvider {
     Id
     First Name
     Last Name
@@ -42,7 +42,7 @@ class Professional {
 }
 
 
-Professional "1   " - "   *" ServiceRequest : makes a >
+ServiceProvider "1   " - "   *" ServiceRequest : makes a >
 ServiceRequest " 1   " - "   1" Service : is related to a >
 Service " *   " - "   1" ServiceCategory : has a >
 
