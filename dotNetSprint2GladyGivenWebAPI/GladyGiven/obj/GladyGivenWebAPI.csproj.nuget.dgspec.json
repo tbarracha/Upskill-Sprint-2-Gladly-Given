@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\GladyGivenWebAPI.csproj": {}
+    "C:\\sprint\\sprint2\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\GladyGivenWebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\GladyGivenWebAPI.csproj": {
+    "C:\\sprint\\sprint2\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\GladyGivenWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\GladyGivenWebAPI.csproj",
+        "projectUniqueName": "C:\\sprint\\sprint2\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\GladyGivenWebAPI.csproj",
         "projectName": "GladyGivenWebAPI",
-        "projectPath": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\GladyGivenWebAPI.csproj",
-        "packagesPath": "C:\\Users\\taigo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\obj\\",
+        "projectPath": "C:\\sprint\\sprint2\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\GladyGivenWebAPI.csproj",
+        "packagesPath": "C:\\Users\\hugo\\.nuget\\packages\\",
+        "outputPath": "C:\\sprint\\sprint2\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\taigo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\hugo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -94,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
