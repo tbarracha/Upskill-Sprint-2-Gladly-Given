@@ -2,7 +2,6 @@ package pt.gladlyGivenApi.GladlyGiven.Models.Users;
 
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 
 @Entity
 public class Refugee extends AppUser {

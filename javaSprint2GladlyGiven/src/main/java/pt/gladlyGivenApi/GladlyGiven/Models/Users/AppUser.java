@@ -1,6 +1,7 @@
 package pt.gladlyGivenApi.GladlyGiven.Models.Users;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import pt.gladlyGivenApi.GladlyGiven.Models.Language;
 import pt.gladlyGivenApi.GladlyGiven.Models.PhoneNumber;
 
@@ -11,6 +12,8 @@ import java.util.List;
 public abstract class AppUser {
 
     @Id
+    @Min(1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
     public String firstName;
     public String lastName;
@@ -28,6 +31,7 @@ public abstract class AppUser {
 
     }
 
+
     public AppUser(String firstName, String lastName, String email, String gender, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -35,7 +39,6 @@ public abstract class AppUser {
         this.gender = gender;
         this.password = password;
     }
-
 
 
     public AppUser(long id, String firstName, String lastName, Language mainLanguage, List<Language> languages, String email, String gender, List<PhoneNumber> phone, String password, String photoURL, Date creationDate) {
@@ -50,69 +53,5 @@ public abstract class AppUser {
         this.password = password;
         this.photoURL = photoURL;
         //this.creationDate = creationDate;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPhotoURL() {
-        return photoURL;
-    }
-
-    public void setPhotoURL(String photoURL) {
-        this.photoURL = photoURL;
-    }
-
-    public String getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(String creationDate) {
-        this.creationDate = creationDate;
     }
 }

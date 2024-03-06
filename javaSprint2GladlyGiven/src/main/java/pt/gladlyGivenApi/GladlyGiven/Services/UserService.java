@@ -34,9 +34,8 @@ public class UserService {
 
         if (refugee == null) {
             refugee = new Refugee(firstName, lastName, email, gender, password, protocolId, snsNumber, nationality, country);
-            refugee = refugeeRepository.save(refugee);
-
             refugee.creationDate = CustomUtils.getDateAsString();
+            refugee = refugeeRepository.save(refugee);
         }
 
         return refugee;
