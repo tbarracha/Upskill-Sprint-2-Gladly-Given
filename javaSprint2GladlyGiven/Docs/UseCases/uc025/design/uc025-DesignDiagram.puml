@@ -1,0 +1,41 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title UC025 - View a list of donations I made.
+
+autonumber
+
+actor Donor as donor
+participant ":DonationUI" as ui
+participant ":DonationController" as ctrl
+participant Repositories as repo
+participant "donationRepo : DonatioRepo" as donationRepo
+
+activate donor
+    donor -> ui : starts the process of requesting a list of all donations made by him
+    activate ui
+        ui --> donor : requests data
+    deactivate ui
+    donor -> ui : fills requested data (start date and end date)
+    activate ui
+        ui -> ctrl : getDonationsRepo( )
+        activate ctrl
+            ctrl -> repo : getDonationRepo( )
+            activate repo
+                repo -> repo : donationRepo( )
+                repo --> ctrl : donationRepo
+            deactivate repo
+            ctrl -> donationRepo : getDonationsByIdAndPeriod(donorId, start date, end date)
+            activate donationRepo
+                donationRepo -> donationRepo : getDonationsByIdAndPeriod(donorId, start date, end date)
+                donationRepo --> ctrl : donationsByIdAndPeriodList
+            deactivate donationRepo
+            ctrl --> ui : donationsByIdAndPeriodList
+        deactivate ctrl
+        ui --> donor : shows the list
+    deactivate ui
+deactivate donor
+
+@enduml

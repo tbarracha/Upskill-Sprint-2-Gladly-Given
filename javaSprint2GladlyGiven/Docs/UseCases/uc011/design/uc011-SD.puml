@@ -1,0 +1,49 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title UC011 - Ask a question to Program Administrators
+
+autonumber
+
+actor SystemUser
+
+participant "AskQuestionUI" as ui
+participant ":AskQuestionController" as ctrl
+participant Repositories
+participant "questionRepo : QuestionsRepository" as questionRepo
+participant "question : Question" as question
+
+activate SystemUser
+    SystemUser -> ui : starts the process of ask a question
+    activate ui
+        ui --> SystemUser: displays fields and request data(name, email, subject and message)
+    deactivate ui
+
+    SystemUser -> ui : fills requested data and confirm
+    activate ui
+        ui -> ctrl** : create()
+        ui -> ctrl : askQuestion()
+        activate ctrl
+            ctrl -> Repositories : getQuestionsRepository()
+            activate Repositories
+                Repositories -> Repositories : questionsRepository()
+                Repositories-->ctrl : questionRepo
+            deactivate Repositories
+            ctrl -> questionRepo : createQuestion()
+            activate questionRepo
+                questionRepo -> question** : createQuestion()
+                activate question
+                question -> question : localValidation
+                question -> questionRepo : question
+                deactivate question
+                questionRepo --> ctrl : success
+            deactivate questionRepo
+            ctrl --> ui : success
+            deactivate ctrl
+            ui --> SystemUser : displays a confirmation message and finishes the process
+    deactivate ui
+deactivate SystemUser
+
+@enduml

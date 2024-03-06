@@ -1,0 +1,30 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) US019 - Choose the donation type
+
+autonumber
+
+actor Donor
+participant ":System" as System
+
+activate Donor
+    Donor -> System : starts the process of chooses the donation type (one-off or monthly)
+    activate System
+        System --> Donor : shows a table (two buttons) with the period that the donor can select (one-off or monthly)
+    deactivate System
+
+    Donor -> System : click on the button of the period that wish to donate
+    activate System
+        System --> Donor : validates and asks for confirmation
+    deactivate System
+
+    Donor -> System : confirms
+    activate System
+        System --> Donor : records the information and notifies the success of the operation
+    deactivate System
+deactivate Donor
+
+@enduml

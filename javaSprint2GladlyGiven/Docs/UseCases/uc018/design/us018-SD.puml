@@ -1,0 +1,73 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title US018 - Choose the amount of money
+
+autonumber
+
+actor Donor as donor
+participant ":DonationUI" as ui
+participant ":DonationController" as ctrl
+participant Repositories as repo
+participant "donationRepo : DonationRepository" as donationRepo
+participant "donationTypeRepo : DonationTypeRepository" as donationTypeRepo
+participant "donation : Donation" as donation
+
+
+activate donor
+    donor -> ui : starts the process of making a donation
+    activate ui
+        ui -> ctrl** : createDonation()
+        ui -> ctrl : getDonationTypeRepo()
+        activate ctrl
+            ctrl -> repo : getDonationTypeRepo()
+            activate repo
+                repo -> repo : getDonationTypeRepo( )
+                repo --> ctrl : donationTypeRepo
+            deactivate repo
+            ctrl -> donationTypeRepo : getDonationsType( )
+            activate donationTypeRepo
+                donationTypeRepo -> donationTypeRepo : getDonationsType( )
+                donationTypeRepo --> ctrl : donationTypeList
+            deactivate donationTypeRepo
+            ctrl --> ui : donationTypeList
+        deactivate ctrl
+            ui --> donor : shows the type of donations and request data
+    deactivate ui
+    donor -> ui : selects the type of donation and insert the amount of money
+    activate ui
+        ui -> ctrl : createDonation(donationType, value)
+        activate ctrl
+            ctrl -> donationTypeRepo : createDonation(donationType, value)
+            activate donationTypeRepo
+                donationTypeRepo -> donation** : create( )
+                activate donation
+                    donation -> donation : localValidation( )
+                    donation --> donationTypeRepo : donation
+                deactivate donation
+                donationTypeRepo -> donationTypeRepo : globalValidation(donation)
+                donationTypeRepo --> ctrl : donation
+            deactivate donationTypeRepo
+            ctrl --> ui : donation
+        deactivate ctrl
+        ui --> donor : validates and asks for confirmation
+    deactivate ui
+    donor -> ui : confirms
+    activate ui
+        ui -> ctrl : save()
+        activate ctrl
+            ctrl -> donationTypeRepo : save(donation)
+            activate donationTypeRepo
+                donationTypeRepo -> donationTypeRepo : globalValidation( )
+                donationTypeRepo -> donationTypeRepo : add(donation)
+                donationTypeRepo --> ctrl : success
+            deactivate donationTypeRepo
+            ctrl --> ui : success
+        deactivate ctrl
+        ui --> donor : records the information and notifies the success of the operation
+    deactivate ui
+deactivate donor
+
+@enduml

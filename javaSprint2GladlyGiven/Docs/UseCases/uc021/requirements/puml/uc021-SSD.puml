@@ -1,0 +1,26 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) - US021 - Validate the registration of a professional/refugee
+
+
+autonumber
+
+actor Administrator as admin
+participant ":System" as System
+
+activate admin
+    admin -> System : starts the process of analyzing sent data
+    activate System
+        System --> admin : shows professional/refugee information
+        admin -> System : analyzes information and validates
+        System --> admin : validates and asks for confirmation
+        admin -> System : confirms
+        System --> admin : records the information and notifies the success of operation
+    deactivate System
+deactivate admin
+
+
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title US007 - System Sequence Diagram (SSD)
+
+autonumber
+
+actor Refugee
+participant ":System" as System
+
+activate Refugee
+    Refugee -> System : starts the process of scheduling an appointment
+    activate System
+        System --> Refugee : displays a list of services
+    deactivate System
+
+    Refugee -> System : chooses a service
+
+    activate System
+        System --> Refugee : shows Services Providers available near Refugee location
+    deactivate System
+    Refugee -> System : selects a Service Provider
+
+    activate System
+        System --> Refugee : shows service provider scheduling availability
+    deactivate System
+
+    Refugee -> System: chooses a date and time
+    activate System
+        System --> Refugee: records the information and shows service provider name, location, date and time.
+
+deactivate Refugee
+
+@enduml

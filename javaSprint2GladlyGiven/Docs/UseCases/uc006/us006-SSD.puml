@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Visualize a list of services available (SSD)
+
+autonumber
+
+actor Refugee
+participant ":System" as System
+
+activate Refugee
+    Refugee -> System : starts the process of looking for all the services available
+    activate System
+        System --> Refugee : shows all the services available in alphabetical order, validates and asks for confirmation
+    deactivate System
+
+    Refugee -> System : confirms
+    activate System
+        System --> Refugee : notifies the success of the operation
+    deactivate System
+deactivate Refugee
+@enduml

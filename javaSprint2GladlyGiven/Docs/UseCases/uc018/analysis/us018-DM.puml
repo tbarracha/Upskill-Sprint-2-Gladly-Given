@@ -1,0 +1,39 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+skinparam classAttributeIconSize 0
+
+hide circle
+hide methods
+
+title US018 - Choose the amount of money
+
+class Donation {
+    Id
+    Value
+    Date
+    Payment Method
+}
+
+class DonationType {
+    Id
+    Name
+}
+
+class Donor {
+    Id
+    First Name
+    Last Name
+    Address
+    NIF/NIPC
+    Email
+    Phone Number
+}
+
+
+Donor "1   " - "   *" Donation : makes a >
+Donation " *   " - "   1" DonationType : has a >
+
+@enduml

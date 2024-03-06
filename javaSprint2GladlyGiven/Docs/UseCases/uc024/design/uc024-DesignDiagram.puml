@@ -1,0 +1,85 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title US024 - Cancel or reschedule an appointment
+
+autonumber
+
+actor Refugee as refugee
+participant ":CancelOrRescheduleUI" as ui
+participant ":CancelOrRescheduleController" as ctrl
+participant Repositories as repo
+participant "appointmentRepo : AppointmentRepo" as appRepo
+participant "appointment : Appointment" as app
+
+activate refugee
+    refugee -> ui : starts the process of canceling/rescheduling an appointment
+    activate ui
+        ui --> refugee : requests data
+    deactivate ui
+    refugee -> ui : fills requested data (date)
+    activate ui
+        ui -> ctrl : getAppointmentsRepo( )
+        activate ctrl
+            ctrl -> repo : getAppointmentsRepo( )
+            activate repo
+                repo -> repo : appointmentRepo( )
+                repo --> ctrl : appointmentRepo
+            deactivate repo
+            ctrl -> appRepo : getAllAppointmentsByDate(date)
+            activate appRepo
+                appRepo -> appRepo : getAllAppointmentsByDate(date)
+                appRepo --> ctrl : appointmentList
+            deactivate appRepo
+            ctrl --> ui : appointmentList
+        deactivate ctrl
+        ui --> refugee : shows the list of appointments for the date
+    deactivate ui
+    refugee -> ui : selects the chosen appointment
+    activate ui
+        ui -> ctrl : getAppointmentById(id)
+        activate ctrl
+            ctrl -> appRepo : getAppointmentById(id)
+            activate appRepo
+                appRepo -> appRepo : getAppointmentById(id)
+                appRepo --> ctrl : appointment
+            deactivate appRepo
+            ctrl --> ui : appointment
+        deactivate ctrl
+        ui --> refugee : shows the selected appointment and asks for the action: cancel or reschedule
+    deactivate ui
+    refugee -> ui : selects the chosen option
+    activate ui
+        ui -> ctrl : updateAppointmentStatus(appointment)
+        activate ctrl
+            ctrl -> appRepo : updateStatus(appointment)
+            activate appRepo
+                appRepo -> app** : updateStatus( )
+                activate app
+                    app -> app : updateStatus( )
+                    app --> appRepo : updatedAppointment
+                deactivate app
+                appRepo --> ctrl : updatedAppointment
+            deactivate appRepo
+            ctrl --> ui : updatedAppointment
+        deactivate ctrl
+        ui --> refugee : updatedAppointment and asks for confirmation
+    deactivate ui
+    refugee -> ui : confirms
+    activate ui
+        ui -> ctrl : save(updatedAppointment)
+        activate ctrl
+            ctrl -> appRepo : save(updatedAppointment)
+            activate appRepo
+                appRepo -> appRepo : savesave(updatedAppointment)
+                appRepo --> ctrl : success
+            deactivate appRepo
+            ctrl --> ui : success
+        deactivate ctrl
+        ui --> refugee : records the information and notifies the success of the operation
+    deactivate ui
+deactivate refugee
+
+@enduml

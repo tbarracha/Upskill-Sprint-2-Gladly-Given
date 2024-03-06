@@ -1,0 +1,27 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title UC011 - System Sequence Diagram (SSD)
+
+autonumber
+
+actor SystemUser
+participant ":System" as System
+
+activate SystemUser
+    SystemUser -> System : starts the process of making a question
+    activate System
+        System --> SystemUser : request data (name, email, subject and message)
+    deactivate System
+
+    SystemUser -> System :fills requested data and confirm
+
+    activate System
+        System --> SystemUser :displays a confirmation message and finishes the process
+    deactivate System
+
+deactivate SystemUser
+
+@enduml

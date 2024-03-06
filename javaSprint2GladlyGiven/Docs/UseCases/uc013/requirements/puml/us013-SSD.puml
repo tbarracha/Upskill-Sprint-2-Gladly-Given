@@ -1,0 +1,30 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) - US013 - Provide date and time for scheduling
+
+autonumber
+
+actor Professional
+participant ":System" as System
+
+activate Professional
+    Professional -> System : starts the process of creating a new date and time slot in the system.
+    activate System
+        System --> Professional : shows a table with times and dates that the professional can select to say that they are available.
+    deactivate System
+
+    Professional -> System : fills in the date and time when he is available.
+    activate System
+        System --> Professional : validates and asks for confirmation
+    deactivate System
+
+    Professional -> System : confirms
+    activate System
+        System --> Professional : records the information and notifies the success of the operation
+    deactivate System
+deactivate Professional
+
+@enduml

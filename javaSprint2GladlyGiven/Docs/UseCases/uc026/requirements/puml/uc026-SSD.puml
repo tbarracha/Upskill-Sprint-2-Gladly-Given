@@ -1,0 +1,28 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) - UC026 - Validate the request for service-related cost support
+
+
+
+
+autonumber
+
+actor Administrator as admin
+participant ":System" as system
+
+activate admin
+    admin -> system : starts the process of validating request for service-related cost support
+    activate system
+        system --> admin : shows request information
+        admin -> system : analyzes and approves/rejects the request
+        system --> admin : validates and asks for confirmation
+        admin -> system : confirms
+        system --> admin : records information and notifies the success of the operation
+    deactivate system
+deactivate admin
+
+
+@enduml
