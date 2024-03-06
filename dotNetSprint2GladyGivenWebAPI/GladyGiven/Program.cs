@@ -12,7 +12,7 @@ namespace GladyGiven
 
             // Add services to the container.
             string connectionString = NeonStaticConnectionStringBuilder.GetNpgsqlConnectionString();
-            builder.Services.AddDbContext<ExampleDBContext>(options =>
+            builder.Services.AddDbContext<CostSupportDBContext>(options =>
                 options.UseNpgsql(connectionString));
 
             builder.Services.AddControllers();
