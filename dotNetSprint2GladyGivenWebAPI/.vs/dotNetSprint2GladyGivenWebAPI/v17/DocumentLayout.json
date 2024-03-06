@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -43,8 +43,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-03-05T19:33:39.722Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -57,8 +56,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAswAYAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-28T12:30:28.312Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
@@ -68,7 +70,7 @@
               "RelativeDocumentMoniker": "GladyGiven\\Controllers\\ExampleController.cs",
               "ToolTip": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\Controllers\\ExampleController.cs",
               "RelativeToolTip": "GladyGiven\\Controllers\\ExampleController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAJAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAA0wBQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-06T15:35:00.344Z",
               "EditorCaption": ""
@@ -82,12 +84,7 @@
               "ToolTip": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\GladyGivenWebAPI.csproj",
               "RelativeToolTip": "GladyGiven\\GladyGivenWebAPI.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-03-06T15:32:11.186Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "WhenOpened": "2024-03-06T15:32:11.186Z"
             },
             {
               "$type": "Document",
@@ -99,8 +96,7 @@
               "RelativeToolTip": "GladyGiven\\NeonStaticConnectionStringBuilder.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-05T19:26:18.883Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-05T19:26:18.883Z"
             }
           ]
         }

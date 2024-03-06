@@ -1,29 +1,38 @@
+// Author: Tiago Barracha
+// ti.barracha@gmail.com
+
 package pt.gladlyGivenApi.GladlyGiven.Models.Users;
 
-import pt.gladlyGivenApi.GladlyGiven.Models.Language;
-import pt.gladlyGivenApi.GladlyGiven.Models.PhoneNumber;
+import jakarta.persistence.MappedSuperclass;
+import jakarta.validation.constraints.Max;
+import pt.gladlyGivenApi.GladlyGiven.Models.Contact.Email;
+import pt.gladlyGivenApi.GladlyGiven.Models.Contact.PhoneNumber;
+import pt.gladlyGivenApi.GladlyGiven.Models.Geographic.Language;
 
-import java.util.Date;
-import java.util.List;
+@MappedSuperclass
+public abstract class MonetaryUser<T extends MonetaryUser> extends AppUser<T> {
+    @Max(16)
+    public String nif;
 
-public abstract class MonetaryUser extends AppUser {
-    private String nif;
-    //paymentInfo : PaymentInfo
-    //invoiceInfo : InvoiceInfo
+    @Max(32)
+    public String paymentInfoId; // fetched from Entity Framework API
+
+    @Max(32)
+    public String invoiceInfoId; // fetched from Entity Framework API
 
     public MonetaryUser() {
+
     }
 
-    public MonetaryUser(long id, String firstName, String lastName, Language mainLanguage, List<Language> languages, String email, String gender, List<PhoneNumber> phone, String password, String photoURL, Date creationDate, String nif) {
-        super(id, firstName, lastName, mainLanguage, languages, email, gender, phone, password, photoURL, creationDate);
+    public MonetaryUser(String firstName, String lastName, Email email, String gender, String password, Language language, PhoneNumber phoneNumber, String nif) {
+        super(firstName, lastName, email, gender, password, language, phoneNumber);
         this.nif = nif;
     }
 
-    public String getNif() {
-        return nif;
-    }
-
-    public void setNif(String nif) {
+    public MonetaryUser(String firstName, String lastName, Email email, String gender, String password, Language language, PhoneNumber phoneNumber, String nif, String paymentInfoId, String invoiceInfoId) {
+        super(firstName, lastName, email, gender, password, language, phoneNumber);
         this.nif = nif;
+        this.paymentInfoId = paymentInfoId;
+        this.invoiceInfoId = invoiceInfoId;
     }
 }

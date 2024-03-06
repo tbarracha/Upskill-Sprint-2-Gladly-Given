@@ -1,3 +1,6 @@
+// Author: Tiago Barracha
+// ti.barracha@gmail.com
+
 package pt.gladlyGivenApi.GladlyGiven;
 
 import java.text.SimpleDateFormat;

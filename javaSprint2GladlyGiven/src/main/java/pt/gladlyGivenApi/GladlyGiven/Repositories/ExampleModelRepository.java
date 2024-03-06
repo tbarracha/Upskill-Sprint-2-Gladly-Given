@@ -9,5 +9,5 @@ import pt.gladlyGivenApi.GladlyGiven.Models.ExampleModel;
 import java.util.Optional;
 
 public interface ExampleModelRepository extends JpaRepository<ExampleModel, Integer> {
-    Optional<ExampleModel> findByName(String name);
+    Optional<ExampleModel> findByNameIgnoreCase(String name);
 }
