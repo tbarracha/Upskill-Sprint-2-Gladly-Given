@@ -2,3 +2,5 @@ dotNetSprint2GladyGivenWebAPI/GladyGiven/NeonStaticConnectionStringBuilder.cs
 *.vsidx
 *.suo
 
+dotNetSprint2GladyGivenWebAPI/GladyGiven/obj/Debug/net8.0/GladyGivenWebAPI.AssemblyInfo.cs
+*.cache
