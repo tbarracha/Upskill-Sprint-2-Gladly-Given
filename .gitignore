@@ -4,3 +4,6 @@ dotNetSprint2GladyGivenWebAPI/GladyGiven/NeonStaticConnectionStringBuilder.cs
 
 dotNetSprint2GladyGivenWebAPI/GladyGiven/obj/Debug/net8.0/GladyGivenWebAPI.AssemblyInfo.cs
 *.cache
+*.cache
+dotNetSprint2GladyGivenWebAPI/GladyGiven/obj/Debug/net8.0/GladyGivenWebAPI.AssemblyInfo.cs
+dotNetSprint2GladyGivenWebAPI/GladyGiven/obj/Debug/net8.0/GladyGivenWebAPI.AssemblyInfoInputs.cache
