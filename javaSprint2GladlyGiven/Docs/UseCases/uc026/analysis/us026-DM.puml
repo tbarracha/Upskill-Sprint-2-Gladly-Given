@@ -8,7 +8,7 @@ skinparam classAttributeIconSize 0
 hide circle
 hide methods
 
-title US026 - Validate the request for service-related cost support
+title US026 - Administrator validates the request for service-related cost support
 
 class CostSupportRequest {
     Id
@@ -17,6 +17,7 @@ class CostSupportRequest {
     Value
     Description
     Status
+    CostSupportType
 }
 
 class Service {
@@ -25,7 +26,7 @@ class Service {
     Category
 }
 
-class Professional {
+class ServiceProvider {
     Id
     First Name
     Last Name
@@ -36,7 +37,13 @@ class Professional {
     Category
 }
 
-Professional "1   " - "   *" Service : performs a >
+class Administrator {
+    Id
+    Name
+}
+
+ServiceProvider "1   " - "   *" Service : performs a >
 Service "1   " - "   1" CostSupportRequest : generates a >
+Administrator "1  " -- " *  " CostSupportRequest : validates a >
 
 @enduml

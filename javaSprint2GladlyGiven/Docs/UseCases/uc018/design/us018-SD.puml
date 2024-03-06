@@ -40,16 +40,16 @@ activate donor
     activate ui
         ui -> ctrl : createDonation(donationType, value)
         activate ctrl
-            ctrl -> donationTypeRepo : createDonation(donationType, value)
-            activate donationTypeRepo
-                donationTypeRepo -> donation** : create( )
+            ctrl -> donationRepo : createDonation(donationType, value)
+            activate donationRepo
+                donationRepo -> donation** : create( )
                 activate donation
                     donation -> donation : localValidation( )
-                    donation --> donationTypeRepo : donation
+                    donation --> donationRepo : donation
                 deactivate donation
-                donationTypeRepo -> donationTypeRepo : globalValidation(donation)
-                donationTypeRepo --> ctrl : donation
-            deactivate donationTypeRepo
+                donationRepo -> donationRepo : globalValidation(donation)
+                donationRepo --> ctrl : donation
+            deactivate donationRepo
             ctrl --> ui : donation
         deactivate ctrl
         ui --> donor : validates and asks for confirmation

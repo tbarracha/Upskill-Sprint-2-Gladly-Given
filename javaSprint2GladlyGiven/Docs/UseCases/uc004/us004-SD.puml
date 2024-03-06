@@ -23,14 +23,8 @@ participant "serviceProviderRepo : ServiceProviderRepository" as serviceProvider
 
 autonumber
 
-actor Refugee
-participant ":SearchServiceUI" as ui
-participant ":SearchServiceController" as ctrl
-participant Repositories
-participant "serviceProviderRepo : ServiceProviderRepository" as serviceProviderRepo
 
 activate Refugee
-
     Refugee -> ui : initiates search for a service by location and type of service
     activate ui
         ui -> ctrl** : create()

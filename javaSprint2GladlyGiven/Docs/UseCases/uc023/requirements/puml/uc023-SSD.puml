@@ -3,24 +3,24 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title System Sequence Diagram (SSD) - US023 - Request registration for a new service
+title System Sequence Diagram (SSD) - US023 - Service Provider requests registration for a new service
 
 
 autonumber
 
-actor Administrator as admin
+actor ServiceProvider as sp
 participant ":System" as System
 
-activate admin
-    admin -> System : starts the process of requesting a new type of service
+activate sp
+    sp -> System : starts the process of requesting a new type of service
     activate System
-        System --> admin : requests data
-        admin -> System : fills the requested data (category of service and description)
-        System --> admin : validates and asks for confirmation
-        admin -> System : confirms
-        System --> admin : records the information and notifies the success of operation
+        System --> sp : requests data
+        sp -> System : fills the requested data (category of service and description)
+        System --> sp : validates and asks for confirmation
+        sp -> System : confirms
+        System --> sp : records the information and notifies the success of operation
     deactivate System
-deactivate admin
+deactivate sp
 
 
 @enduml

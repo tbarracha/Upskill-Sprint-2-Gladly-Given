@@ -8,7 +8,7 @@ skinparam classAttributeIconSize 0
 hide circle
 hide methods
 
-title US020 - View monthly reports
+title US020 - Donor views donation reports
 
 class DonationReport {
     Id

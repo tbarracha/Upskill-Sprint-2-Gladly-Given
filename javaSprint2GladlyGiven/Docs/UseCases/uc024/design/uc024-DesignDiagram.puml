@@ -3,7 +3,7 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title US024 - Cancel or reschedule an appointment
+title US024 - Refugee cancels or reschedules an appointment
 
 autonumber
 
