@@ -11,14 +11,15 @@ namespace GladyGiven
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddDbContext<ServiceTestContext>(options =>
-                options.UseOracle(builder.Configuration.GetConnectionString("GGServiceTestDb")
-                )
-              );
+            
+            //builder.Services.AddDbContext<ServiceTestContext>(options =>
+            //    options.UseOracle(builder.Configuration.GetConnectionString("GGServiceTestDb")
+            //    )
+            //  );
 
-            //string connectionString = NeonStaticConnectionStringBuilder.GetNpgsqlConnectionString();
-            //builder.Services.AddDbContext<ExampleDBContext>(options =>
-            //    options.UseNpgsql(connectionString));
+            string connectionString = NeonStaticConnectionStringBuilder.GetNpgsqlConnectionString();
+            builder.Services.AddDbContext<ServicesContext>(options =>
+                options.UseNpgsql(connectionString));
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

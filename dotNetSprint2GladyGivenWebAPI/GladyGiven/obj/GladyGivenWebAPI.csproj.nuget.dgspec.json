@@ -68,6 +68,14 @@
               "target": "Package",
               "version": "[13.0.3, )"
             },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[7.0.6, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
             "Oracle.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.21.13, )"

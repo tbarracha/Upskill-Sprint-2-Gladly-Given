@@ -63,3 +63,5 @@ C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2Gla
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.pdb
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.genruntimeconfig.cache
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\ref\GladyGivenWebAPI.dll
+C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\Npgsql.dll
+C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

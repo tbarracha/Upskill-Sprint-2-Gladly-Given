@@ -3,8 +3,9 @@
     "",
     "\\GladyGiven",
     "\\GladyGiven\\Migrations",
-    "\\GladyGiven\\Models"
+    "\\GladyGiven\\Models",
+    "\\GladyGiven\\Services"
   ],
-  "SelectedNode": "\\GladyGiven\\Models",
+  "SelectedNode": "\\GladyGiven\\Services\\ExampleService.cs",
   "PreviewInSolutionExplorer": false
 }

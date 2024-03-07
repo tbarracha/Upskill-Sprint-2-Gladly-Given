@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7qLID4fA45Jk5Z3G9p02ybqvidJ2hVrS0yGNcNPNZsLG7HlyphF/+/5l0UisFfgRH5SxgT5eGZYvSkCXA/A7qQ==",
+  "dgSpecHash": "77lNeSsg/LzAWEps7flT8OYflhLogbbm8IIyre0KN0SUdY/aGHHJxyJdESFX16Oxise+QK69XygmqCDRtfGOvA==",
   "success": true,
   "projectFilePath": "C:\\Users\\lenovo\\Documents\\Sprint2\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\GladyGivenWebAPI.csproj",
   "expectedPackageFiles": [
@@ -28,6 +28,8 @@
     "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\npgsql\\7.0.6\\npgsql.7.0.6.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.11\\npgsql.entityframeworkcore.postgresql.7.0.11.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\oracle.entityframeworkcore\\7.21.13\\oracle.entityframeworkcore.7.21.13.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\oracle.manageddataaccess.core\\3.21.130\\oracle.manageddataaccess.core.3.21.130.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
