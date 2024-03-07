@@ -1,7 +1,5 @@
-﻿// Author: Tiago Barracha
-// ti.barracha@gmail.com
+﻿// Author: Lia Araruna
 
-using GladyGivenWebAPI.Example;
 using GladyGivenWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 

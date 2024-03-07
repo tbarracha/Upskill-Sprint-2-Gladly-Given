@@ -3,7 +3,6 @@
 
 
 using GladyGivenWebAPI.Data;
-using GladyGivenWebAPI.Example;
 using GladyGivenWebAPI.Models;
 using GladyGivenWebAPI.Models.DTOs;
 using GladyGivenWebAPI.Services;
@@ -22,14 +21,6 @@ namespace GladyGivenWebAPI.Controllers
         {
             costService = new CostSupportService(context);
         }
-
-        /*
-        [HttpGet("~/api/health")] // landing
-        public ActionResult<string> Health()
-        {
-            return Ok("Entity API is working fine!");
-        }*/
-
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CostSupportDTO>>> GetAllCostSupports()
