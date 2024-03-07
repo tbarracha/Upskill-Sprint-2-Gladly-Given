@@ -2,6 +2,7 @@ using GladyGivenWebAPI;
 using GladyGivenWebAPI.Data;
 using Microsoft.EntityFrameworkCore;
 
+// Author: Clarissa
 namespace GladyGiven
 {
     public class Program
@@ -11,8 +12,14 @@ namespace GladyGiven
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            
+            //builder.Services.AddDbContext<ServiceTestContext>(options =>
+            //    options.UseOracle(builder.Configuration.GetConnectionString("GGServiceTestDb")
+            //    )
+            //  );
+
             string connectionString = NeonStaticConnectionStringBuilder.GetNpgsqlConnectionString();
-            builder.Services.AddDbContext<ExampleDBContext>(options =>
+            builder.Services.AddDbContext<ServicesContext>(options =>
                 options.UseNpgsql(connectionString));
 
             builder.Services.AddControllers();
