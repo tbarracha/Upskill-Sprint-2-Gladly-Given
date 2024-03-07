@@ -10,8 +10,8 @@ namespace GladyGivenWebAPI.Data
 
         }
 
-    public DbSet<Category> Category { get; set; }
+        public DbSet<Category> Category { get; set; }
 
-    public DbSet<Service> Service { get; set; }
+        public DbSet<Service> Service { get; set; }
     }
 }

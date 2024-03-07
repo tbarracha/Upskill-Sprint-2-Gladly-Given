@@ -2,3 +2,9 @@ dotNetSprint2GladyGivenWebAPI/GladyGiven/NeonStaticConnectionStringBuilder.cs
 *.vsidx
 *.suo
 
+dotNetSprint2GladyGivenWebAPI/.vs/dotNetSprint2GladyGivenWebAPI/DesignTimeBuild/.dtbcache.v2
+dotNetSprint2GladyGivenWebAPI/.vs/dotNetSprint2GladyGivenWebAPI/v17/.futdcache.v2
+dotNetSprint2GladyGivenWebAPI/.vs/dotNetSprint2GladyGivenWebAPI/v17/.suo
+dotNetSprint2GladyGivenWebAPI/GladyGiven/Data/ServicesContext.cs
+dotNetSprint2GladyGivenWebAPI/GladyGiven/obj/Debug/net7.0/GladyGivenWebAPI.AssemblyInfo.cs
+dotNetSprint2GladyGivenWebAPI/GladyGiven/obj/Debug/net7.0/GladyGivenWebAPI.AssemblyInfoInputs.cache
