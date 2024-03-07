@@ -16,7 +16,7 @@ import pt.gladlyGivenApi.GladlyGiven.Models.PhoneNumber;
  * @param <T concrete child class >
  */
 @MappedSuperclass
-public abstract class AppUser<T> implements IDTOable<T> {
+public abstract class AppUser<T, DTO> implements IDTOable<DTO> {
     @Id
     @Min(1)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,15 +62,6 @@ public abstract class AppUser<T> implements IDTOable<T> {
         this.email = email;
         this.gender = gender;
         this.password = password;
-    }
-
-    public AppUser(String firstName, String lastName, Email email, String gender, String password, Language language) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.gender = gender;
-        this.password = password;
-        this.mainLanguage = language;
     }
 
     public AppUser(String firstName, String lastName, Email email, String gender, String password, Language language, PhoneNumber phoneNumber) {

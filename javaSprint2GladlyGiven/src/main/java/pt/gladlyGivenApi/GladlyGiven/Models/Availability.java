@@ -14,7 +14,7 @@ public class Availability {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
 
-    public long userId;
+    public long serviceProviderId;
 
     public AvailabilityStatus availabilityStatus;
 
@@ -26,8 +26,8 @@ public class Availability {
 
     }
 
-    public Availability(long userId, AvailabilityStatus availabilityStatus, String startDateTime, String endDateTime) {
-        this.userId = userId;
+    public Availability(long serviceProviderId, AvailabilityStatus availabilityStatus, String startDateTime, String endDateTime) {
+        this.serviceProviderId = serviceProviderId;
         this.availabilityStatus = availabilityStatus;
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;

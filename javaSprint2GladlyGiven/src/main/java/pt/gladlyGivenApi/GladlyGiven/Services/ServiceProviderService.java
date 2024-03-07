@@ -1,12 +1,22 @@
 package pt.gladlyGivenApi.GladlyGiven.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import pt.gladlyGivenApi.GladlyGiven.PageUtils;
+import pt.gladlyGivenApi.GladlyGiven.Models.Availability;
 import pt.gladlyGivenApi.GladlyGiven.Models.Email;
 import pt.gladlyGivenApi.GladlyGiven.Models.Language;
 import pt.gladlyGivenApi.GladlyGiven.Models.PhoneNumber;
 import pt.gladlyGivenApi.GladlyGiven.Models.Users.ServiceProvider;
+import pt.gladlyGivenApi.GladlyGiven.Repositories.AvailabilityRepository;
 import pt.gladlyGivenApi.GladlyGiven.Repositories.Users.ServiceProviderRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ServiceProviderService extends AppUserService {
@@ -16,28 +26,31 @@ public class ServiceProviderService extends AppUserService {
     @Autowired
     private ServiceProviderRepository serviceProviderRepository;
 
+    @Autowired
+    private AvailabilityRepository availabilityRepository;
+
 
 
     // Service Provider
     // ---------------------------------------------------------------------
     // find ---
-    public ServiceProvider findById(Long id) {
+    public ServiceProvider findServiceProviderById(Long id) {
         return findUserById(id, serviceProviderRepository);
     }
 
-    public ServiceProvider findByEmail(String email) {
+    public ServiceProvider findServiceProviderByEmail(String email) {
         return findUserByEmail(email, serviceProviderRepository);
     }
 
-    public ServiceProvider findByFirstName(String firstName) {
+    public ServiceProvider findServiceProviderByFirstName(String firstName) {
         return findUserByFirstName(firstName, serviceProviderRepository);
     }
 
-    public ServiceProvider findByLastName(String lastName) {
+    public ServiceProvider findServiceProviderByLastName(String lastName) {
         return findUserByLastName(lastName, serviceProviderRepository);
     }
 
-    public ServiceProvider findByLicenseNumber(String licenseNumber) {
+    public ServiceProvider findServiceProviderByLicenseNumber(String licenseNumber) {
         return serviceProviderRepository.findByLicenseNumber(licenseNumber).orElse(null);
     }
 
@@ -48,7 +61,7 @@ public class ServiceProviderService extends AppUserService {
     }
 
     public ServiceProvider createServiceProvider(String firstName, String lastName, String emailAddress, String gender, String password, String language, String phoneNumber, String nif, String licenseNumber, long categoryId) {
-        ServiceProvider serviceProvider = findByFirstName(firstName);
+        ServiceProvider serviceProvider = findServiceProviderByFirstName(firstName);
 
         if (serviceProvider == null) {
             Email email = findOrCreateEmail(emailAddress);
@@ -91,5 +104,73 @@ public class ServiceProviderService extends AppUserService {
         }
 
         return existing;
+    }
+
+    public ServiceProvider addServicesToServiceProvider(Long serviceProviderId, List<Long> serviceIds) {
+        ServiceProvider serviceProvider = findServiceProviderById(serviceProviderId);
+
+        if (serviceProvider != null) {
+            if (serviceProvider.serviceIds == null)
+                serviceProvider.serviceIds = new ArrayList<>();
+
+            for (Long serviceId : serviceIds) {
+                if (!serviceProvider.serviceIds.contains(serviceId)) {
+                    serviceProvider.serviceIds.add(serviceId);
+                }
+            }
+
+            serviceProvider = serviceProviderRepository.save(serviceProvider);
+        }
+
+        return serviceProvider;
+    }
+
+
+
+    // Service Provider Availability
+    // ---------------------------------------------------------------------
+    public Availability findAvailability(Long id) {
+        return availabilityRepository.findById(id).orElse(null);
+    }
+
+    public List<Availability> findAvailability(int pageNumber, int pageSize, String startDateTimeString) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by("availability.startDateTimeString"));
+        Page<Availability> page = availabilityRepository.findByStartDateTime(startDateTimeString, pageable);
+
+        return PageUtils.pageToList(page);
+    }
+
+    public Availability createAvailability(Long serviceProviderId, String startDateTimeString, String endDateTimeString) {
+        return null; // TODO
+    }
+
+
+
+
+
+    // Service Reviews
+    // ---------------------------------------------------------------------
+    private ServiceProvider addServiceReview(ServiceProvider serviceProvider, Long reviewId) {
+        if (serviceProvider != null) {
+            if (serviceProvider.reviewIds == null)
+                serviceProvider.reviewIds = new ArrayList<>();
+
+            if (!serviceProvider.reviewIds.contains(reviewId)) {
+                serviceProvider.reviewIds.add(reviewId);
+                serviceProvider = serviceProviderRepository.save(serviceProvider);
+            }
+        }
+
+        return serviceProvider;
+    }
+
+    public ServiceProvider addServiceReview(Long serviceProviderId, Long reviewId) {
+        ServiceProvider serviceProvider = findServiceProviderById(serviceProviderId);
+        return addServiceReview(serviceProvider, reviewId);
+    }
+
+    public ServiceProvider addServiceReview(String serviceProviderlicenseNumber, Long reviewId) {
+        ServiceProvider serviceProvider = findServiceProviderByLicenseNumber(serviceProviderlicenseNumber);
+        return addServiceReview(serviceProvider, reviewId);
     }
 }

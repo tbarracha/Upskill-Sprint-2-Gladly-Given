@@ -5,7 +5,6 @@ package pt.gladlyGivenApi.GladlyGiven.Models.Users;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Max;
 import pt.gladlyGivenApi.GladlyGiven.Models.Email;
 import pt.gladlyGivenApi.GladlyGiven.Models.Country;
@@ -13,7 +12,7 @@ import pt.gladlyGivenApi.GladlyGiven.Models.Language;
 import pt.gladlyGivenApi.GladlyGiven.Models.PhoneNumber;
 
 @Entity
-public class Refugee extends AppUser<Refugee> {
+public class Refugee extends AppUser<Refugee, RefugeeDTO> {
     @Max(16)
     public String protocolId;
 
@@ -47,7 +46,19 @@ public class Refugee extends AppUser<Refugee> {
     }
 
     @Override
-    public Refugee toDTO() {
-        return null;
+    public RefugeeDTO toDTO() {
+        return new RefugeeDTO(
+                firstName,
+                lastName,
+                email.email,
+                gender,
+                photoURL,
+                mainLanguage.language,
+                mainPhoneNumber.number,
+                protocolId,
+                snsNumber,
+                nationality,
+                country.country
+        );
     }
 }

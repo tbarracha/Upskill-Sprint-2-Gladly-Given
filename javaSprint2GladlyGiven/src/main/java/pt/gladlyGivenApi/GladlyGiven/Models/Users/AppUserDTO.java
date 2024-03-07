@@ -7,23 +7,23 @@ import pt.gladlyGivenApi.GladlyGiven.Models.Email;
 import pt.gladlyGivenApi.GladlyGiven.Models.Language;
 import pt.gladlyGivenApi.GladlyGiven.Models.PhoneNumber;
 
-public class AppUserDTO {
+public abstract class AppUserDTO {
 
     public String firstName;
 
     public String lastName;
 
-    public Email email;
+    public String email;
 
     public String gender;
 
     public String photoURL;
 
-    public Language mainLanguage;
+    public String mainLanguage;
 
     //public List<Language> languages;
 
-    public PhoneNumber mainPhoneNumber;
+    public String mainPhoneNumber;
 
     //public List<PhoneNumber> phoneNumbers;
 
@@ -32,7 +32,7 @@ public class AppUserDTO {
 
     }
 
-    public AppUserDTO(String firstName, String lastName, Email email, String gender, String photoURL, Language mainLanguage, PhoneNumber mainPhoneNumber) {
+    public AppUserDTO(String firstName, String lastName, String email, String gender, String photoURL, String mainLanguage, String mainPhoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

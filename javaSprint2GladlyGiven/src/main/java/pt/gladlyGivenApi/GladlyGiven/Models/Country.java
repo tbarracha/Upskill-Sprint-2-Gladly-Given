@@ -1,4 +1,4 @@
-// Author: Tiago Barracha, Hugo Lopes
+// Author: Tiago Barrach
 // ti.barracha@gmail.com
 
 package pt.gladlyGivenApi.GladlyGiven.Models;

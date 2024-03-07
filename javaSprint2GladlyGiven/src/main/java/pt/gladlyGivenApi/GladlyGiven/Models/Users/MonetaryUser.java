@@ -10,7 +10,7 @@ import pt.gladlyGivenApi.GladlyGiven.Models.PhoneNumber;
 import pt.gladlyGivenApi.GladlyGiven.Models.Language;
 
 @MappedSuperclass
-public abstract class MonetaryUser<T extends MonetaryUser> extends AppUser<T> {
+public abstract class MonetaryUser<T extends MonetaryUser, DTO extends AppUserDTO> extends AppUser<T, DTO> {
     @Max(16)
     public String nif;
 
