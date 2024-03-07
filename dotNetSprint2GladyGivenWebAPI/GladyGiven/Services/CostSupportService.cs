@@ -1,6 +1,9 @@
-﻿using System;
+﻿///Author: Lia Araruna
+
+using System;
 using GladyGivenWebAPI.Data;
 using GladyGivenWebAPI.Models;
+using GladyGivenWebAPI.Models.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace GladyGivenWebAPI.Services
@@ -14,49 +17,111 @@ namespace GladyGivenWebAPI.Services
 			this.context = context;
 		}
 
-        public async Task<List<CostSupport>> FindAllCostSupports()
+        /// <summary>
+        /// Administrator views all cost supports requested
+        /// </summary>
+        /// <returns>List of all cost supports requested</returns>
+        public async Task<List<CostSupportDTO>> FindAllCostSupports()
         {
             List<CostSupport> costSupports = await context.CostSupports.ToListAsync();
 
             if(costSupports == null)
             {
+                return null; //TODO: alterar para exceção TableIsEmpty();
+            }
+
+            List<CostSupportDTO> costSupportDTOs = new List<CostSupportDTO>();
+
+            foreach (CostSupport cost in costSupports)
+            {
+                CostSupportDTO costSupportDTO = new CostSupportDTO(cost);
+                costSupportDTOs.Add(costSupportDTO);
+            }
+
+            return costSupportDTOs;
+        }
+
+        /// <summary>
+        /// Service provider views all cost supports requested by him.
+        /// </summary>
+        /// <param name="userId">Service provider id</param>
+        /// <returns>List of all cost supports requested by a service provider</returns>
+        public async Task<List<CostSupportDTO>> FindAllCostSupportsById(int userId)
+        {
+            List<CostSupport> costSupports = await context.CostSupports
+                .Where(sp => sp.Id == userId)
+                .ToListAsync();
+
+            if (costSupports == null)
+            {
+                //TODO: alterar para exceção ThereIsNoCostSupportException();
                 return null;
             }
-            return costSupports;
-        }
 
-        public async Task<CostSupport> FindCostSupport(int id)
-        {
-            var costSupport = await context.CostSupports.FirstOrDefaultAsync(m => m.Id == id);
-            if (costSupport == null)
+            List<CostSupportDTO> costSupportDTOs = new List<CostSupportDTO>();
+
+            foreach(CostSupport cost in costSupports)
             {
-                return null; //TODO: inserir exceção.
+                CostSupportDTO costSupportDTO = new CostSupportDTO(cost);
+                costSupportDTOs.Add(costSupportDTO);
             }
-            return costSupport;
+
+            return costSupportDTOs;
         }
 
-        public async Task<CostSupport> CreateCostSupport(CostSupport cost)
+        /// <summary>
+        /// Find a specific cost support by its id
+        /// </summary>
+        /// <param name="id">Cost support id</param>
+        /// <returns>Cost support</returns>
+        public async Task<CostSupportDTO> FindCostSupport(int id)
         {
-            var costSupport = await context.CostSupports.FirstOrDefaultAsync(m => m.Description == cost.Description);
+            var costSupport = await context.CostSupports.FirstOrDefaultAsync(cs => cs.Id == id);
+            if (costSupport == null)
+            {
+                throw new NotImplementedException(); //TODO: alterar para exceção EntityDoesntExistsException();
+            }
+
+            CostSupportDTO costSupportDTO = new CostSupportDTO(costSupport);
+
+            return costSupportDTO;
+        }
+
+        /// <summary>
+        /// Service provider requests a cost support.
+        /// </summary>
+        /// <param name="cost">Cost support DTO</param>
+        /// <returns>costSupportDTO</returns>
+        public async Task<CostSupportDTO> CreateCostSupport(CostSupportDTO cost)
+        {
+            var costSupport = await context.CostSupports.FirstOrDefaultAsync(cs => cs.Id == cost.Id);
 
             if (costSupport == null)
             {
-                costSupport = new CostSupport { Id = cost.Id, Amount = cost.Amount, Description = cost.Description, ServiceProviderId = cost.ServiceProviderId, Status = cost.Status, Type = cost.Type };
+                costSupport = new CostSupport { Amount = cost.Amount, Description = cost.Description,
+                    ServiceProviderId = cost.ServiceProviderId, Status = Enums.CostSupportStatus.PENDING,
+                    Type = cost.Type };
                 context.CostSupports.Add(costSupport);
                 context.SaveChanges();
             }
 
-            return costSupport;
+            CostSupportDTO costSupportDTO = new CostSupportDTO(costSupport);
+
+            return costSupportDTO;
         }
 
-        public async Task<CostSupport> UpdateCostSupport(CostSupport cost)
+
+
+        /// <summary>
+        /// Administrator validates a cost support requested.
+        /// </summary>
+        /// <param name="cost">Cost support to be validated</param>
+        /// <returns>Cost support status updated</returns>
+        /*
+        public async Task<CostSupportDTO> UpdateCostSupport(CostSupportDTO cost)
         {
-            var updatedCostSupport = context.CostSupports.Entry(cost);
-            updatedCostSupport.State = EntityState.Modified;
-            await context.SaveChangesAsync();
-
-            return updatedCostSupport.Entity;
-        }
+           
+        }*/
     }
 }
 

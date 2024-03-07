@@ -5,6 +5,7 @@
 using GladyGivenWebAPI.Data;
 using GladyGivenWebAPI.Example;
 using GladyGivenWebAPI.Models;
+using GladyGivenWebAPI.Models.DTOs;
 using GladyGivenWebAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -30,10 +31,21 @@ namespace GladyGivenWebAPI.Controllers
         }*/
 
 
-        [HttpGet("/costsupports")]
-        public async Task<ActionResult<IEnumerable<CostSupport>>> FindAllCostSupports()
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<CostSupportDTO>>> GetAllCostSupports()
         {
-            List<CostSupport> costSupports = await costService.FindAllCostSupports();
+            List<CostSupportDTO> costSupports = await costService.FindAllCostSupports();
+
+            if (costSupports != null && costSupports.Count > 0)
+                return Ok(costSupports);
+
+            return NoContent();
+        }
+
+        [HttpGet("mycostsupports/{id}")]
+        public async Task<ActionResult<IEnumerable<CostSupportDTO>>> GetAllCostSupportsById(int userId)
+        {
+            List<CostSupportDTO> costSupports = await costService.FindAllCostSupports();
 
             if (costSupports != null && costSupports.Count > 0)
                 return Ok(costSupports);
@@ -42,9 +54,9 @@ namespace GladyGivenWebAPI.Controllers
         }
 
         [HttpGet("id")]
-        public async Task<ActionResult<CostSupport>> FindCostSupport(int id)
+        public async Task<ActionResult<CostSupport>> GetCostSupport(int id)
         {
-            CostSupport costSupport = await costService.FindCostSupport(id);
+            CostSupportDTO costSupport = await costService.FindCostSupport(id);
 
             if (costSupport != null)
                 return Ok(costSupport);
@@ -53,9 +65,9 @@ namespace GladyGivenWebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<CostSupport>> CreateCostSupport(CostSupport cost)
+        public async Task<ActionResult<CostSupportDTO>> CreateCostSupport(CostSupportDTO cost)
         {
-            CostSupport costSupport = await costService.CreateCostSupport(cost);
+            CostSupportDTO costSupport = await costService.CreateCostSupport(cost);
 
             if (costSupport != null)
                 return Ok(costSupport);
@@ -63,17 +75,18 @@ namespace GladyGivenWebAPI.Controllers
             return NoContent();
         }
 
+        /*
         [HttpPut("id")]
-        public async Task<ActionResult<CostSupport>> UpdateCostSupport(int id, CostSupport cost)
+        public async Task<ActionResult<CostSupportDTO>> UpdateCostSupport(int id, CostSupportDTO cost)
         {
             if (cost.Id != id)
             {
                 return BadRequest();
             }
 
-            CostSupport updatedCost = await costService.UpdateCostSupport(cost);
+            CostSupportDTO updatedCost = await costService.UpdateCostSupport(cost);
 
             return Ok();
-        }
+        }*/
     }
 }
