@@ -2,11 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\GladyGiven",
+    "\\GladyGiven\\Data",
     "\\GladyGiven\\Migrations",
     "\\GladyGiven\\Models",
     "\\GladyGiven\\Properties",
     "\\GladyGiven\\Services"
   ],
-  "SelectedNode": "\\GladyGiven\\Migrations\\20240307004455_FirstServicesAndCategoriesMigration.cs",
+  "SelectedNode": "\\dotNetSprint2GladyGivenWebAPI.sln",
   "PreviewInSolutionExplorer": false
 }
