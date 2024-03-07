@@ -1,6 +1,7 @@
 dotNetSprint2GladyGivenWebAPI/GladyGiven/NeonStaticConnectionStringBuilder.cs
 dotNetSprint2GladyGivenWebAPI/GladyGiven/Migrations
 dotNetSprint2GladyGivenWebAPI/GladyGiven/obj
+dotNetSprint2GladyGivenWebAPI/GladyGiven/bin
 
 *.vsidx
 *.suo
