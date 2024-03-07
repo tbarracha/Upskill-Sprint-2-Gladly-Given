@@ -9,4 +9,5 @@ public class GladlyGivenApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GladlyGivenApplication.class, args);
 	}
+
 }
