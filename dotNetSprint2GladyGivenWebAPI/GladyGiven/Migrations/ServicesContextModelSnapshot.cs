@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace GladyGivenWebAPI.Migrations
 {
-    [DbContext(typeof(ServicesContext))]
+    [DbContext(typeof(ApplicationContextDb))]
     partial class ServicesContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

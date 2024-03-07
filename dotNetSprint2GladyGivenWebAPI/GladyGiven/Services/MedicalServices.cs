@@ -8,9 +8,9 @@ namespace GladyGivenWebAPI.Services
 {
     public class MedicalServices
     {
-        public readonly ServicesContext context;
+        public readonly ApplicationContextDb context;
 
-        public MedicalServices(ServicesContext context)
+        public MedicalServices(ApplicationContextDb context)
         {
             this.context = context;
         }

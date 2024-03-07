@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace GladyGivenWebAPI.Migrations
 {
-    [DbContext(typeof(ServicesContext))]
+    [DbContext(typeof(ApplicationContextDb))]
     [Migration("20240307004455_FirstServicesAndCategoriesMigration")]
     partial class FirstServicesAndCategoriesMigration
     {

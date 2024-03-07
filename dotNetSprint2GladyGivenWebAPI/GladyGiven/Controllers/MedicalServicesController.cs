@@ -16,7 +16,7 @@ namespace GladyGivenWebAPI.Controllers
     {
         private readonly MedicalServices core;
 
-        public MedicalServicesController(ServicesContext context)
+        public MedicalServicesController(ApplicationContextDb context)
         {
             this.core = new MedicalServices(context);
         }

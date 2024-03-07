@@ -19,7 +19,7 @@ namespace GladyGiven
             //  );
 
             string connectionString = NeonStaticConnectionStringBuilder.GetNpgsqlConnectionString();
-            builder.Services.AddDbContext<ServicesContext>(options =>
+            builder.Services.AddDbContext<ApplicationContextDb>(options =>
                 options.UseNpgsql(connectionString));
 
             builder.Services.AddControllers();

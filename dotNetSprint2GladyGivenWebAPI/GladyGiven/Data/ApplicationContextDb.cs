@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GladyGivenWebAPI.Data
 {
-    public class ServicesContext : DbContext 
+    public class ApplicationContextDb : DbContext 
     {
-        public ServicesContext(DbContextOptions<ServicesContext> options) : base(options)
+        public ApplicationContextDb(DbContextOptions<ApplicationContextDb> options) : base(options)
         {
 
         }
