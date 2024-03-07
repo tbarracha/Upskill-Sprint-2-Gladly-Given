@@ -1,11 +1,3 @@
-C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.csproj.AssemblyReference.cache
-C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.AssemblyInfoInputs.cache
-C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.AssemblyInfo.cs
-C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.csproj.CoreCompileInputs.cache
-C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.sourcelink.json
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\appsettings.json
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\GladyGivenWebAPI.exe
@@ -25,6 +17,8 @@ C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2Gla
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\Npgsql.dll
+C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\Oracle.EntityFrameworkCore.dll
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\Oracle.ManagedDataAccess.dll
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
@@ -49,6 +43,14 @@ C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2Gla
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.csproj.AssemblyReference.cache
+C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.AssemblyInfoInputs.cache
+C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.AssemblyInfo.cs
+C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.sourcelink.json
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\staticwebassets.development.json
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\staticwebassets\msbuild.GladyGivenWebAPI.Microsoft.AspNetCore.StaticWebAssets.props
@@ -63,5 +65,3 @@ C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2Gla
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.pdb
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\GladyGivenWebAPI.genruntimeconfig.cache
 C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\obj\Debug\net7.0\ref\GladyGivenWebAPI.dll
-C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\Npgsql.dll
-C:\Users\lenovo\Documents\Sprint2\Upskill-Sprint-2-Gladly-Given\dotNetSprint2GladyGivenWebAPI\GladyGiven\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+//Author: Clarissa
 
 namespace GladyGivenWebAPI.Models
 {

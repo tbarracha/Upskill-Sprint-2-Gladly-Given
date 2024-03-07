@@ -4,8 +4,9 @@
     "\\GladyGiven",
     "\\GladyGiven\\Migrations",
     "\\GladyGiven\\Models",
+    "\\GladyGiven\\Properties",
     "\\GladyGiven\\Services"
   ],
-  "SelectedNode": "\\GladyGiven\\Services\\ExampleService.cs",
+  "SelectedNode": "\\GladyGiven\\Migrations\\20240307004455_FirstServicesAndCategoriesMigration.cs",
   "PreviewInSolutionExplorer": false
 }

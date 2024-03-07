@@ -2,6 +2,7 @@ using GladyGivenWebAPI;
 using GladyGivenWebAPI.Data;
 using Microsoft.EntityFrameworkCore;
 
+// Author: Clarissa
 namespace GladyGiven
 {
     public class Program

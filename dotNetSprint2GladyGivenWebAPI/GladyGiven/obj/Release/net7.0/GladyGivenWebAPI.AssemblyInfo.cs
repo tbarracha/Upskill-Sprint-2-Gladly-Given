@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GladyGivenWebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc2a0153489d85f33e306f4a3a25b52d06ef88c3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe3c66be883b224ab51d546a98fc1b731408b18e")]
 [assembly: System.Reflection.AssemblyProductAttribute("GladyGivenWebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GladyGivenWebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
