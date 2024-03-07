@@ -1,10 +1,10 @@
 // Author: Tiago Barracha
 // ti.barracha@gmail.com
 
-package pt.gladlyGivenApi.GladlyGiven.Repositories.Geographic;
+package pt.gladlyGivenApi.GladlyGiven.Repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pt.gladlyGivenApi.GladlyGiven.Models.Geographic.Country;
+import pt.gladlyGivenApi.GladlyGiven.Models.Country;
 
 import java.util.Optional;
 

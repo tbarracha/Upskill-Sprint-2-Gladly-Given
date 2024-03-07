@@ -5,7 +5,7 @@ package pt.gladlyGivenApi.GladlyGiven.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pt.gladlyGivenApi.GladlyGiven.Models.Contact.Email;
+import pt.gladlyGivenApi.GladlyGiven.Models.Email;
 import pt.gladlyGivenApi.GladlyGiven.Models.Users.Refugee;
 import pt.gladlyGivenApi.GladlyGiven.Repositories.Users.*;
 
@@ -21,6 +21,7 @@ public class RefugeeService extends AppUserService {
 
     // Refugee
     // ---------------------------------------------------------------------
+    // find ---
     public Refugee findRefugeeById(Long id) {
         return findUserById(id, refugeeRepository);
     }
@@ -50,6 +51,7 @@ public class RefugeeService extends AppUserService {
     }
 
 
+    // create ---
     // does the refugee come from this service?
     public Refugee createRefugee(Refugee refugee, boolean isServiceOriginated) {
         if (refugee == null)
@@ -76,8 +78,9 @@ public class RefugeeService extends AppUserService {
 
         if (refugee == null) {
             Email email = findOrCreateEmail(emailAddress);
-            refugee = new Refugee(firstName, lastName, email, gender, password, protocolId, snsNumber, nationality, country);
+            refugee = new Refugee(firstName, lastName, email, gender, password, protocolId, snsNumber, nationality);
 
+            refugee.country = findOrCreateCountry(country);
             refugee.mainLanguage = findOrCreateLanguage(language);
             refugee.mainPhoneNumber = findOrCreatePhoneNumber(phoneNumber);
 
@@ -88,23 +91,27 @@ public class RefugeeService extends AppUserService {
     }
 
 
+    // update ---
     public Refugee updateRefugee(Refugee refugee) {
         if (refugee == null)
             return null;
 
-        Refugee ref = findRefugeeViaDTO(refugee);
+        Refugee existing = updateUser(refugee, refugeeRepository);
 
-        if (ref != null) {
-            if (!ref.firstName.equalsIgnoreCase(refugee.firstName))
-                ref.firstName = refugee.firstName;
+        if (existing != null) {
+            if (!existing.protocolId.equalsIgnoreCase(refugee.protocolId))
+                existing.protocolId = refugee.protocolId;
 
-            if (!ref.lastName.equalsIgnoreCase(refugee.lastName))
-                ref.lastName = refugee.lastName;
+            if (!existing.snsNumber.equalsIgnoreCase(refugee.snsNumber))
+                existing.snsNumber = refugee.snsNumber;
 
-            if (!ref.mainPhoneNumber.number.equalsIgnoreCase(refugee.mainPhoneNumber.number))
-                ref.mainPhoneNumber = refugee.mainPhoneNumber;
+            if (!existing.nationality.equalsIgnoreCase(refugee.nationality))
+                existing.nationality = refugee.nationality;
+
+            if (!existing.country.country.equalsIgnoreCase(refugee.country.country))
+                existing.country = refugee.country;
         }
 
-        return ref;
+        return existing;
     }
 }

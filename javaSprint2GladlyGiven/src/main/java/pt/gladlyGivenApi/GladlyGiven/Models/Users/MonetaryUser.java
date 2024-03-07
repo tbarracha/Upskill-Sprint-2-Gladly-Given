@@ -5,9 +5,9 @@ package pt.gladlyGivenApi.GladlyGiven.Models.Users;
 
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.Max;
-import pt.gladlyGivenApi.GladlyGiven.Models.Contact.Email;
-import pt.gladlyGivenApi.GladlyGiven.Models.Contact.PhoneNumber;
-import pt.gladlyGivenApi.GladlyGiven.Models.Geographic.Language;
+import pt.gladlyGivenApi.GladlyGiven.Models.Email;
+import pt.gladlyGivenApi.GladlyGiven.Models.PhoneNumber;
+import pt.gladlyGivenApi.GladlyGiven.Models.Language;
 
 @MappedSuperclass
 public abstract class MonetaryUser<T extends MonetaryUser> extends AppUser<T> {

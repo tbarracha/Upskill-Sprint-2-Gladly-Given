@@ -5,13 +5,17 @@ package pt.gladlyGivenApi.GladlyGiven.Services;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import pt.gladlyGivenApi.GladlyGiven.CustomUtils;
-import pt.gladlyGivenApi.GladlyGiven.Models.Contact.Email;
-import pt.gladlyGivenApi.GladlyGiven.Models.Contact.PhoneNumber;
-import pt.gladlyGivenApi.GladlyGiven.Models.Geographic.Language;
+import pt.gladlyGivenApi.GladlyGiven.DateTimeUtils;
+import pt.gladlyGivenApi.GladlyGiven.Models.Email;
+import pt.gladlyGivenApi.GladlyGiven.Models.PhoneNumber;
+import pt.gladlyGivenApi.GladlyGiven.Models.Country;
+import pt.gladlyGivenApi.GladlyGiven.Models.Language;
 import pt.gladlyGivenApi.GladlyGiven.Models.Users.AppUser;
-import pt.gladlyGivenApi.GladlyGiven.Repositories.Contact.*;
-import pt.gladlyGivenApi.GladlyGiven.Repositories.Geographic.*;
+import pt.gladlyGivenApi.GladlyGiven.Models.Users.ServiceProvider;
+import pt.gladlyGivenApi.GladlyGiven.Repositories.CountryRepository;
+import pt.gladlyGivenApi.GladlyGiven.Repositories.EmailRepository;
+import pt.gladlyGivenApi.GladlyGiven.Repositories.LanguageRepository;
+import pt.gladlyGivenApi.GladlyGiven.Repositories.PhoneNumberRepository;
 import pt.gladlyGivenApi.GladlyGiven.Repositories.Users.AppUserRepository;
 
 /**
@@ -25,6 +29,9 @@ public abstract class AppUserService {
     private EmailRepository emailRepository;
 
     @Autowired
+    private CountryRepository countryRepository;
+
+    @Autowired
     private LanguageRepository languageRepository;
 
     @Autowired
@@ -32,10 +39,11 @@ public abstract class AppUserService {
 
 
 
-    // AppUser - probably better ways to do this, but this one works great!
+    // AppUser
+    // - probably better ways to do this, but this one works great!
     // ---------------------------------------------------------------------
     protected <T extends AppUser> T addCreationDateToUser(T user) {
-        user.creationDate = CustomUtils.getDateAsString();
+        user.creationDate = DateTimeUtils.getDateTimeNowAsString();
         return user;
     }
 
@@ -78,6 +86,26 @@ public abstract class AppUserService {
             existing = findUserByLastName(userDTO.lastName, repository);
 
         return existing;
+    }
+
+
+    protected <T extends AppUser> T createUser(T user, AppUserRepository<T> repository, boolean isServiceOriginated) {
+        if (user == null)
+            return null;
+
+        T provider = null;
+
+        // If the serviceProvider did not come from this service, try to find if it already exists
+        if (!isServiceOriginated) {
+            provider = findUserByDTO(user, repository);
+        }
+
+        if (provider == null) {
+            provider = addCreationDateToUser(user);
+            provider = repository.save(provider);
+        }
+
+        return provider;
     }
 
 
@@ -141,6 +169,28 @@ public abstract class AppUserService {
         return mail;
     }
 
+
+
+    // Country
+    // ---------------------------------------------------------------------
+    public Country findCountryById(Long id) {
+        return countryRepository.findById(id).orElse(null);
+    }
+
+    public Country findCountryByLanguage(String language) {
+        return countryRepository.findByCountryIgnoreCase(language).orElse(null);
+    }
+
+    public Country findOrCreateCountry(String country) {
+        Country lang = findCountryByLanguage(country);
+
+        if (lang == null) {
+            lang = new Country(country);
+            lang = countryRepository.save(lang);
+        }
+
+        return lang;
+    }
 
 
     // Language

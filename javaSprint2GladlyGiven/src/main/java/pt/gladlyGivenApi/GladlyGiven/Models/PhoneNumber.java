@@ -1,7 +1,7 @@
 // Author: Tiago Barracha, Hugo Lopes
 // ti.barracha@gmail.com
 
-package pt.gladlyGivenApi.GladlyGiven.Models.Contact;
+package pt.gladlyGivenApi.GladlyGiven.Models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;

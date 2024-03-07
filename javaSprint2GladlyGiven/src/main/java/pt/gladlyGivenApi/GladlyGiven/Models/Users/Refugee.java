@@ -4,10 +4,13 @@
 package pt.gladlyGivenApi.GladlyGiven.Models.Users;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Max;
-import pt.gladlyGivenApi.GladlyGiven.Models.Contact.Email;
-import pt.gladlyGivenApi.GladlyGiven.Models.Geographic.Language;
-import pt.gladlyGivenApi.GladlyGiven.Models.Contact.PhoneNumber;
+import pt.gladlyGivenApi.GladlyGiven.Models.Email;
+import pt.gladlyGivenApi.GladlyGiven.Models.Country;
+import pt.gladlyGivenApi.GladlyGiven.Models.Language;
+import pt.gladlyGivenApi.GladlyGiven.Models.PhoneNumber;
 
 @Entity
 public class Refugee extends AppUser<Refugee> {
@@ -21,21 +24,21 @@ public class Refugee extends AppUser<Refugee> {
     public String nationality;
 
     @Max(32)
-    public String country;
+    @ManyToOne
+    public Country country;
 
     public Refugee() {
         super();
     }
 
-    public Refugee(String firstName, String lastName, Email email, String gender, String password, String protocolId, String snsNumber, String nationality, String country) {
+    public Refugee(String firstName, String lastName, Email email, String gender, String password, String protocolId, String snsNumber, String nationality) {
         super(firstName, lastName, email, gender, password);
         this.protocolId = protocolId;
         this.snsNumber = snsNumber;
         this.nationality = nationality;
-        this.country = country;
     }
 
-    public Refugee(String firstName, String lastName, Email email, String gender, String password, String protocolId, String snsNumber, String nationality, String country, Language language, PhoneNumber phoneNumber) {
+    public Refugee(String firstName, String lastName, Email email, String gender, String password, String protocolId, String snsNumber, String nationality, Country country, Language language, PhoneNumber phoneNumber) {
         super(firstName, lastName, email, gender, password, language, phoneNumber);
         this.protocolId = protocolId;
         this.snsNumber = snsNumber;

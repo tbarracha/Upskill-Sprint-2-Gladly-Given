@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import pt.gladlyGivenApi.GladlyGiven.Models.Geographic.Country;
-import pt.gladlyGivenApi.GladlyGiven.Models.Geographic.Language;
-import pt.gladlyGivenApi.GladlyGiven.Repositories.Geographic.CountryRepository;
-import pt.gladlyGivenApi.GladlyGiven.Repositories.Geographic.LanguageRepository;
+import pt.gladlyGivenApi.GladlyGiven.Models.Country;
+import pt.gladlyGivenApi.GladlyGiven.Models.Language;
+import pt.gladlyGivenApi.GladlyGiven.Repositories.CountryRepository;
+import pt.gladlyGivenApi.GladlyGiven.Repositories.LanguageRepository;
 
 import java.util.List;
 

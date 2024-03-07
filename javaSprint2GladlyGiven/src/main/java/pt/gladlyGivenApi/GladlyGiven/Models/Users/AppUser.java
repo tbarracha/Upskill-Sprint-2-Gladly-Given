@@ -7,9 +7,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import pt.gladlyGivenApi.GladlyGiven.Interfaces.IDTOable;
-import pt.gladlyGivenApi.GladlyGiven.Models.Contact.Email;
-import pt.gladlyGivenApi.GladlyGiven.Models.Geographic.Language;
-import pt.gladlyGivenApi.GladlyGiven.Models.Contact.PhoneNumber;
+import pt.gladlyGivenApi.GladlyGiven.Models.Email;
+import pt.gladlyGivenApi.GladlyGiven.Models.Language;
+import pt.gladlyGivenApi.GladlyGiven.Models.PhoneNumber;
 
 /**
  * Base abstract class for all AppUser Types

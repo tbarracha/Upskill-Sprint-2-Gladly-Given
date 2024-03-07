@@ -1,7 +1,7 @@
 // Author: Tiago Barracha, Hugo Lopes
 // ti.barracha@gmail.com
 
-package pt.gladlyGivenApi.GladlyGiven.Models.Geographic;
+package pt.gladlyGivenApi.GladlyGiven.Models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,4 +14,11 @@ public class Country {
 
     @Column(unique = true)
     public String country;
+
+    public Country() {
+    }
+
+    public Country(String country) {
+        this.country = country;
+    }
 }

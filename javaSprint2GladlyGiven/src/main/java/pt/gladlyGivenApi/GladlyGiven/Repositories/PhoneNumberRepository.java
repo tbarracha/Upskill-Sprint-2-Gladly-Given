@@ -1,10 +1,10 @@
 // Author: Tiago Barracha
 // ti.barracha@gmail.com
 
-package pt.gladlyGivenApi.GladlyGiven.Repositories.Contact;
+package pt.gladlyGivenApi.GladlyGiven.Repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pt.gladlyGivenApi.GladlyGiven.Models.Contact.PhoneNumber;
+import pt.gladlyGivenApi.GladlyGiven.Models.PhoneNumber;
 
 import java.util.Optional;
 

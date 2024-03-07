@@ -15,7 +15,7 @@ public class RefugeeController {
     // Services
     // --------------------------------------------------------------------------------------
     @Autowired
-    RefugeeService refugeeService;
+    private RefugeeService refugeeService;
 
 
 
@@ -42,12 +42,12 @@ public class RefugeeController {
     }
 
 
-    @PostMapping("/params")
+    @PostMapping("/fromParams")
     public Refugee createRefugeeViaRequestParams(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email, @RequestParam String gender, @RequestParam String password, @RequestParam String protocolId, @RequestParam String snsNumber, @RequestParam String nationality, @RequestParam String country, @RequestParam String language, @RequestParam String phoneNumber) {
         return refugeeService.createRefugee(firstName, lastName, email, gender, password, protocolId, snsNumber, nationality, country, language, phoneNumber);
     }
 
-    @PostMapping("/body")
+    @PostMapping("/fromBody")
     public Refugee createRefugeeViaRequestBody(@RequestBody Refugee refugee) {
         return refugeeService.createRefugee(refugee, false);
     }
