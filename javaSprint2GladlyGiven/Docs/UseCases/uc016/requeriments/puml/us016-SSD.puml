@@ -1,0 +1,30 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) US016 - Request service-related cost support
+
+autonumber
+
+actor Professional
+participant ":System" as System
+
+activate Professional
+    Professional -> System : starts the process of creating a new solicitation with amount spent and the justification in the system.
+    activate System
+        System --> Professional : shows the fields available to fill in and their rules.
+    deactivate System
+
+    Professional -> System : fills  with amount spent and the justification.
+    activate System
+        System --> Professional : validates and asks for confirmation
+    deactivate System
+
+    Professional -> System : confirms
+    activate System
+        System --> Professional : records the information and notifies the success of the operation
+    deactivate System
+deactivate Professional
+
+@enduml

@@ -1,0 +1,108 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+'left to right direction
+
+skinparam classAttributeIconSize 0
+
+hide circle
+hide methods
+
+title Glady Given - Domain Model
+
+class Administrator {
+    name: string
+    email: string
+    username: string
+    password: string
+}
+
+class Address {
+    streetName: string
+    postalCode: string
+    city: string
+    country: string
+}
+
+class Professional {
+    firstName: string
+    lastName: string
+    birthDate: string
+    gender: string
+    phoneNumber: string
+    email: string
+    address: Address
+    nif: string
+    nationality: string
+    nativeLanguage: string
+    otherLanguages: string
+    licenseNumber: string
+    profession: string
+    category: string
+}
+
+class BankAccountInfo {
+    bankName: string
+    IBAN: string
+    bankAccountHolderName: string
+}
+
+class Donor {
+    firstName: string
+    lastName: string
+    phoneNumber: string
+    email: string
+    type: Type
+    bankAccountInfo: BankAccountInfo
+}
+
+class Type {
+    Singular
+    Colectivo
+}
+
+class Refugee {
+    firstName: string
+    lastName: string
+    birthDate: string
+    gender: string
+    phoneNumber: string
+    email: string
+    address: Address
+    nif: string
+    niss: string
+    snsNumber: string
+    nationality: string
+    countryOfOrigin: string
+    nativeLanguage: string
+    maritalStatus: string
+    emergencyContacts: List<EmergencyContact>
+    medicalHistory: MedicalHistory
+}
+
+class EmergencyContact {
+     firstName: string
+     lastName: string
+     phoneNumber: string
+     email: string
+}
+
+class MedicalHistory {
+    medication: string
+    diseases: string
+    allergies: string
+}
+
+Refugee  "1" --down "     *" EmergencyContact : has >
+Refugee  "1" --down "     1" Address : has >
+Refugee  "1" --down "     1" MedicalHistory: has >
+Professional  "1" --down "     1" BankAccountInfo: has >
+Donor  "1" --down "     1" BankAccountInfo: has >
+Administrator "1" --down "     *" Professional : manages >
+Administrator "1" --down "    *" Donor : manages >
+Administrator "1" --down "     *" Refugee : manages >
+@enduml
+
+

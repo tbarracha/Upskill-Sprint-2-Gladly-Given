@@ -1,0 +1,42 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+skinparam classAttributeIconSize 0
+
+hide circle
+hide methods
+
+title US026 - Validate the request for service-related cost support
+
+class CostSupportRequest {
+    Id
+    Date Request
+    Date of Service
+    Value
+    Description
+    Status
+}
+
+class Service {
+    Id
+    Name
+    Category
+}
+
+class Professional {
+    Id
+    First Name
+    Last Name
+    License Number
+    Address
+    Phone Number
+    Email
+    Category
+}
+
+Professional "1   " - "   *" Service : performs a >
+Service "1   " - "   1" CostSupportRequest : generates a >
+
+@enduml

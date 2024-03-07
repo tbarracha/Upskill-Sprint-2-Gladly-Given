@@ -22,7 +22,7 @@ public class ExampleModelService {
     public ExampleModel createExampleModel(String name) {
 
         // can also use option if prefered...
-        ExampleModel model = repository.findByName(name).orElse(null);
+        ExampleModel model = repository.findByNameIgnoreCase(name).orElse(null);
 
         if (model == null) {
             model = new ExampleModel(name);

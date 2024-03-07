@@ -1,0 +1,25 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title system Sequence Diagram (SSD) - UC025 - View a list of donations I made
+
+
+
+autonumber
+
+actor Donor as donor
+participant ":System" as system
+
+activate donor
+    donor -> system : starts the process of requesting donations list
+    activate system
+        system --> donor : requests data
+        donor -> system : fills the requested data (start date and end date)
+        system --> donor : validates and displays the list
+    deactivate system
+deactivate donor
+
+
+@enduml

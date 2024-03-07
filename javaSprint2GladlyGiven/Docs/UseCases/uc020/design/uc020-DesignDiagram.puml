@@ -1,0 +1,42 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title US020 - View monthly reports
+
+autonumber
+
+actor Donor as donor
+participant ":DonationReportUI" as ui
+participant ":DonationReportController" as ctrl
+participant Repositories as repo
+participant "donationReportRepo : DonationReportRepo" as donationReportRepo
+participant "donationReport : donationReport" as donationReport
+
+activate donor
+    donor -> ui : starts the process of requesting a report of donations per month
+    activate ui
+        ui --> donor : requests data
+    deactivate ui
+    donor -> ui : fills requested data (start date, end date)
+    activate ui
+        ui -> ctrl : getDonationReportRepo( )
+        activate ctrl
+            ctrl -> repo : getDonationReportRepo( )
+            activate repo
+                repo -> repo : donationReportRepo( )
+                repo --> ctrl : donationReportRepo
+            deactivate repo
+            ctrl -> donationRepo : getDonationReportByMonth(start date, end date)
+            activate donationRepo
+                donationRepo -> donationRepo : getDonationReportByMonth(start date, end date)
+                donationRepo --> ctrl : donationReport
+            deactivate donationRepo
+            ctrl --> ui : donationReport
+        deactivate ctrl
+        ui --> donor : shows the report
+    deactivate ui
+deactivate donor
+
+@enduml

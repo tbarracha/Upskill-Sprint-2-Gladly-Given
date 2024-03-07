@@ -1,0 +1,53 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+skinparam classAttributeIconSize 0
+
+hide circle
+hide methods
+
+title US021 - Validate the registration of a professional/refugee
+
+class RegisterRequest {
+    Id
+    Request Date
+    Refugee/Professional
+    Status
+}
+
+class Refugee {
+    Refugee Number Protocol
+    First Name
+    Last Name
+    Address
+    Email
+    Phone Number
+    Nationality
+    Country of Origin
+    Native Language
+}
+
+class Professional {
+    Id
+    First Name
+    Last Name
+    License Number
+    Address
+    Phone Number
+    Email
+    Category
+}
+
+class Administrator {
+    Id
+    Name
+}
+
+
+Refugee "1   " - "   1" RegisterRequest : makes a >
+Professional "1   " - "   1" RegisterRequest : makes a >
+Administrator "1   " - "   *" RegisterRequest : accepts/rejects a >
+
+@enduml

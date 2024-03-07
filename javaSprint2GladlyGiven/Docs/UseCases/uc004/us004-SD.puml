@@ -1,0 +1,64 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Search for a service by location and type of service
+
+autonumber
+
+actor Refugee
+participant ":SearchServiceUI" as ui
+participant ":SearchServiceController" as ctrl
+participant Repositories
+participant "serviceProviderRepo : ServiceProviderRepository" as serviceProviderRepo
+
+autonumber
+
+actor Refugee
+participant ":SearchServiceUI" as ui
+participant ":SearchServiceController" as ctrl
+participant Repositories
+participant "serviceProviderRepo : ServiceProviderRepository" as serviceProviderRepo
+
+autonumber
+
+actor Refugee
+participant ":SearchServiceUI" as ui
+participant ":SearchServiceController" as ctrl
+participant Repositories
+participant "serviceProviderRepo : ServiceProviderRepository" as serviceProviderRepo
+
+activate Refugee
+
+    Refugee -> ui : initiates search for a service by location and type of service
+    activate ui
+        ui -> ctrl** : create()
+        ui -> ctrl : getAllServiceTypes()
+        activate ctrl
+            ctrl -> Repositories : getServiceProviderRepository()
+            activate Repositories
+                Repositories -> Repositories : serviceProviderRepository()
+                Repositories-->ctrl : serviceProviderRepo
+            deactivate Repositories
+            ctrl --> ui : provides list of all service types
+        deactivate ctrl
+            ui --> Refugee : shows list of all service types
+            Refugee -> ui : selects desired service type
+            ui -> Refugee : requests to input desired location
+            Refugee -> ui : provides desired location
+        activate ctrl
+            ui -> ctrl : searchService(type, location)
+            activate serviceProviderRepo
+                serviceProviderRepo -> serviceProviderRepo : searchByTypeAndLocation(type, location)
+                serviceProviderRepo --> serviceProviderRepo : serviceProviders
+            deactivate serviceProviderRepo
+            ctrl --> ui : displays list of service providers offering the desired service in the specified location
+            ui --> Refugee : shows search results
+        deactivate ctrl
+    deactivate ui
+deactivate Refugee
+
+
+
+@enduml

@@ -1,0 +1,21 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title UC010 - Ask a question to Program Administrators
+
+autonumber
+
+actor SystemUser
+participant System
+
+
+activate SystemUser
+    SystemUser -> System : select FAQ page
+    activate System
+        System --> SystemUser : shows a list of frequently asked questions
+    deactivate System
+deactivate SystemUser
+
+@enduml

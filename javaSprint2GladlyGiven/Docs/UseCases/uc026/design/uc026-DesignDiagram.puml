@@ -1,0 +1,68 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title UC026 - Validate the request for service-related cost support
+
+autonumber
+
+actor Administrator as admin
+participant ":CostSupportRequestUI" as ui
+participant ":CostSupRequestController" as ctrl
+participant Repositories as repo
+participant "costSupRequestRepo : CostSupportRequest" as costRepo
+participant "costSupport : CostSupport" as costSupport
+
+activate admin
+    admin -> ui : starts the process of validation a new request for service-related cost support
+    activate ui
+        ui -> ctrl : getCostSupportRequest( )
+        activate ctrl
+            ctrl -> repo : getCostSupportRequestRepo( )
+            activate repo
+                repo -> repo : costSupportRequestRepo( )
+                repo --> ctrl : costSuportRequestRepo
+            deactivate repo
+            ctrl -> costRepo : getCostSupportRequest( )
+            activate costRepo
+                costRepo -> costRepo : getCostSupportRequest( )
+                costRepo --> ctrl : costSupportRequest
+            deactivate costRepo
+            ctrl --> ui : costSupportRequest
+        deactivate ctrl
+        ui --> admin : shows request information registered
+    deactivate ui
+    admin -> ui : analyzes and accepts request
+    activate ui
+        ui -> ctrl : createCostSupport( )
+        activate ctrl
+            ctrl -> costRepo : createCostSupport(date, description, value, status)
+            activate costRepo
+                costRepo -> costSupport** : create( )
+                activate costSupport
+                    costSupport -> costSupport : localValidation( )
+                    costSupport -> costRepo : costSupport
+                deactivate costSupport
+                costRepo -> costRepo : globalValidation(costSupport)
+                costRepo --> ctrl : costSupport
+            deactivate costRepo
+            ctrl --> ui : costSupport
+        deactivate ctrl
+        ui --> admin : validates and asks for confirmation
+    deactivate ui
+    admin -> ui : confirms
+    activate ui
+        ui -> ctrl : save( )
+        activate ctrl
+            ctrl -> costRepo : save(costSupport)
+            activate costRepo
+                costRepo -> costRepo : add(costSupport)
+                costRepo --> ctrl : success
+            deactivate costRepo
+            ctrl --> ui : success
+        deactivate ctrl
+        ui --> admin : records the information and notifies the success of the operation
+deactivate admin
+
+@enduml

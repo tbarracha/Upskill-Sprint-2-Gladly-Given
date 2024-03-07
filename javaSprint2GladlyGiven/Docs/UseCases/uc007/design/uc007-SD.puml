@@ -1,0 +1,92 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title UC007 - Schedule an Appointment
+autonumber
+actor Refugee
+
+participant "ScheduleAppointmentUI" as ui
+participant "ScheduleAppointmentController" as ctrl
+participant "Repositories"
+participant "servicesRepo : ServicesRepository" as serviceRepo
+participant "serviceProviderRepo : ServiceProvidersRepository" as serviceProvidersRepo
+participant "appointmentRepo : AppointmentRepository" as appointmentRepo
+participant "appointment : Appointment" as appointment
+
+
+activate Refugee
+    Refugee -> ui : starts the process of scheduling an appointment
+    activate ui
+        ui -> ctrl : getServices()
+            activate ctrl
+                ctrl -> "Repositories" : getServicesRepository()
+                    activate "Repositories"
+                    "Repositories" -> "Repositories" : ServicesRepository()
+                    "Repositories" --> ctrl : serviceRepo
+                    deactivate "Repositories"
+                ctrl -> serviceRepo : getServices()
+                    activate serviceRepo
+                        serviceRepo -> serviceRepo : getServices()
+                        serviceRepo --> ctrl : servicesList
+                    deactivate serviceRepo
+                ctrl --> ui : servicesList
+             deactivate ctrl
+        ui --> Refugee : displays a list of services
+    deactivate ui
+
+    Refugee -> ui : chooses a service
+    activate ui
+        ui -> ctrl : getServicesProvidersByService(service)
+            activate ctrl
+                ctrl -> "Repositories" : getServicesProvidersRepository()
+                    activate "Repositories"
+                        "Repositories" -> "Repositories" : ServicesProvidersRepository()
+                        "Repositories" --> ctrl : serviceProvidersRepo
+                    deactivate "Repositories"
+                ctrl --> serviceProvidersRepo : getServiceProvidersByLocation(location)
+                    activate serviceProvidersRepo
+                        serviceProvidersRepo -> serviceProvidersRepo : getServicesProvidersByLocation(location)
+                        serviceProvidersRepo --> ctrl : servicesProvidersList
+                    deactivate serviceProvidersRepo
+                ctrl --> ui : servicesProvidersList
+             deactivate ctrl
+        ui --> Refugee : shows Services Providers available near Refugee location
+    deactivate ui
+
+    Refugee -> ui : selects a Service Provider
+    activate ui
+        ui -> ctrl : getServiceProviderAvailability(serviceProviderID)
+            activate ctrl
+                ctrl -> serviceProvidersRepo : getServiceProviderAvailability(serviceProviderID)
+                activate serviceProvidersRepo
+                    serviceProvidersRepo -> serviceProvidersRepo : getServiceProviderAvailability(serviceProviderID)
+                    serviceProvidersRepo --> ctrl : serviceProviderAvailability
+                deactivate serviceProvidersRepo
+                ctrl --> ui : serviceProviderAvailability
+            deactivate ctrl
+        ui --> Refugee : shows service provider scheduling availability
+    deactivate ui
+
+    Refugee -> ui: chooses a date and time
+    activate ui
+        ui -> ctrl : registerAppointment(SP, date, time)
+            activate ctrl
+                ctrl -> appointmentRepo : createAppointment(SP, date, time)
+                activate appointmentRepo
+                    appointmentRepo -> appointment** : create(SP, date, time)
+                        activate appointment
+                            appointment -> appointment : localValidation()
+                            appointment -> appointmentRepo : appointment
+                        deactivate appointment
+                    appointmentRepo -> appointmentRepo : globalValidation(appointment)
+                    appointmentRepo -> appointmentRepo : save(appointment)
+                    appointmentRepo --> ctrl : appointment info
+                deactivate appointmentRepo
+            ctrl --> ui: appointment info
+            deactivate ctrl
+        ui --> Refugee: records the information and shows service provider name, location, date and time.
+    deactivate ui
+deactivate Refugee
+@enduml
