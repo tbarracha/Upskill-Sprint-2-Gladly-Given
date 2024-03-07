@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A5E6B766-EABB-470D-933E-82099335E8F4}|GladyGiven\\GladyGiven.csproj|c:\\users\\taigo\\onedrive\\documentos\\github\\upskill-sprint-2-gladly-given\\dotnetsprint2gladygivenwebapi\\gladygiven\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5E6B766-EABB-470D-933E-82099335E8F4}|GladyGiven\\GladyGiven.csproj|solutionrelative:gladygiven\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5E6B766-EABB-470D-933E-82099335E8F4}|GladyGiven\\GladyGivenWebAPI.csproj|c:\\users\\taigo\\onedrive\\documentos\\github\\upskill-sprint-2-gladly-given\\dotnetsprint2gladygivenwebapi\\gladygiven\\controllers\\examplecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E6B766-EABB-470D-933E-82099335E8F4}|GladyGiven\\GladyGivenWebAPI.csproj|solutionrelative:gladygiven\\controllers\\examplecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5E6B766-EABB-470D-933E-82099335E8F4}|GladyGiven\\GladyGiven.csproj|c:\\users\\taigo\\onedrive\\documentos\\github\\upskill-sprint-2-gladly-given\\dotnetsprint2gladygivenwebapi\\gladygiven\\controllers\\emptycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5E6B766-EABB-470D-933E-82099335E8F4}|GladyGiven\\GladyGiven.csproj|solutionrelative:gladygiven\\controllers\\emptycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5E6B766-EABB-470D-933E-82099335E8F4}|GladyGiven\\GladyGivenWebAPI.csproj|c:\\users\\taigo\\onedrive\\documentos\\github\\upskill-sprint-2-gladly-given\\dotnetsprint2gladygivenwebapi\\gladygiven\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E6B766-EABB-470D-933E-82099335E8F4}|GladyGiven\\GladyGivenWebAPI.csproj|solutionrelative:gladygiven\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E6B766-EABB-470D-933E-82099335E8F4}|GladyGiven\\GladyGivenWebAPI.csproj|c:\\users\\taigo\\onedrive\\documentos\\github\\upskill-sprint-2-gladly-given\\dotnetsprint2gladygivenwebapi\\gladygiven\\gladygivenwebapi.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{A5E6B766-EABB-470D-933E-82099335E8F4}|GladyGiven\\GladyGivenWebAPI.csproj|solutionrelative:gladygiven\\gladygivenwebapi.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E6B766-EABB-470D-933E-82099335E8F4}|GladyGiven\\GladyGivenWebAPI.csproj|c:\\users\\taigo\\onedrive\\documentos\\github\\upskill-sprint-2-gladly-given\\dotnetsprint2gladygivenwebapi\\gladygiven\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A5E6B766-EABB-470D-933E-82099335E8F4}|GladyGiven\\GladyGivenWebAPI.csproj|solutionrelative:gladygiven\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E6B766-EABB-470D-933E-82099335E8F4}|GladyGiven\\GladyGivenWebAPI.csproj|c:\\users\\taigo\\onedrive\\documentos\\github\\upskill-sprint-2-gladly-given\\dotnetsprint2gladygivenwebapi\\gladygiven\\neonstaticconnectionstringbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E6B766-EABB-470D-933E-82099335E8F4}|GladyGiven\\GladyGivenWebAPI.csproj|solutionrelative:gladygiven\\neonstaticconnectionstringbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,20 +30,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\appsettings.json",
+              "RelativeDocumentMoniker": "GladyGiven\\appsettings.json",
+              "ToolTip": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\appsettings.json",
+              "RelativeToolTip": "GladyGiven\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-05T19:33:39.722Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "EmptyController.cs",
-              "DocumentMoniker": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\Controllers\\EmptyController.cs",
-              "RelativeDocumentMoniker": "GladyGiven\\Controllers\\EmptyController.cs",
-              "ToolTip": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\Controllers\\EmptyController.cs",
-              "RelativeToolTip": "GladyGiven\\Controllers\\EmptyController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAIAAAA",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\Program.cs",
+              "RelativeDocumentMoniker": "GladyGiven\\Program.cs",
+              "ToolTip": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\Program.cs",
+              "RelativeToolTip": "GladyGiven\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAswAYAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-28T12:30:24.528Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-28T12:30:28.312Z",
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -40,15 +65,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\Program.cs",
-              "RelativeDocumentMoniker": "GladyGiven\\Program.cs",
-              "ToolTip": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\Program.cs",
-              "RelativeToolTip": "GladyGiven\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Title": "ExampleController.cs",
+              "DocumentMoniker": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\Controllers\\ExampleController.cs",
+              "RelativeDocumentMoniker": "GladyGiven\\Controllers\\ExampleController.cs",
+              "ToolTip": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\Controllers\\ExampleController.cs",
+              "RelativeToolTip": "GladyGiven\\Controllers\\ExampleController.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAA0wBQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-28T12:30:28.312Z",
+              "WhenOpened": "2024-03-06T15:35:00.344Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GladyGivenWebAPI",
+              "DocumentMoniker": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\GladyGivenWebAPI.csproj",
+              "RelativeDocumentMoniker": "GladyGiven\\GladyGivenWebAPI.csproj",
+              "ToolTip": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\GladyGivenWebAPI.csproj",
+              "RelativeToolTip": "GladyGiven\\GladyGivenWebAPI.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-06T15:32:11.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NeonStaticConnectionStringBuilder.cs",
+              "DocumentMoniker": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\NeonStaticConnectionStringBuilder.cs",
+              "RelativeDocumentMoniker": "GladyGiven\\NeonStaticConnectionStringBuilder.cs",
+              "ToolTip": "C:\\Users\\taigo\\OneDrive\\Documentos\\GitHub\\Upskill-Sprint-2-Gladly-Given\\dotNetSprint2GladyGivenWebAPI\\GladyGiven\\NeonStaticConnectionStringBuilder.cs",
+              "RelativeToolTip": "GladyGiven\\NeonStaticConnectionStringBuilder.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-05T19:26:18.883Z"
             }
           ]
         }
