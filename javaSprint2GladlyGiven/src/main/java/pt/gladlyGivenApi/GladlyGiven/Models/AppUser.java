@@ -1,3 +1,7 @@
+/**
+ * Author: Hugo Lopes
+ */
+
 package pt.gladlyGivenApi.GladlyGiven.Models;
 
 
